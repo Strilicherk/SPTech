@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Viagens</title>
+</head>
+<body>
+    <label for="inputKm">Insira a distância da corrida (km): </label> <br>
+    <input type="number" id="inputKm"> <br>
+    <label for="inputPedagio">Insira o valor do pedágio: </label> <br>
+    <input type="number" id="inputPedagio"> <br>
+    <label for="inputBandeira">Insira a bandeira (1, 2 ou 3): </label> <br>
+    <input type="number" id="inputBandeira"> <br>
+    <button onclick="CalcCorrida()">Acumular corrida realizada</button>
+    <div id="message"></div>
+
+    <script>
+        var contador = 0;
+        var acumuladoDia = 0;
+
+        function CalcCorrida() {
+            var km = Number(inputKm.value);
+            var pedagio = Number(inputPedagio.value);
+            var bandeira = Number(inputBandeira.value);
+            var valorCorrida = 10 * (km / 8);
+
+            if (km > 50) {
+                valorCorrida = valorCorrida * 0.9;
+            }
+
+            valorCorrida += pedagio;
+
+            if (bandeira == 1) {
+                valorCorrida *= 0.965; // Desconto 3,5%
+            } else if (bandeira == 2) {
+                valorCorrida *= 1.117; // Acréscimo 11,7%
+            } else if (bandeira == 3) {
+                valorCorrida *= 1.223; // Acréscimo 22,3%
+            }
+
+            contador++;
+            acumuladoDia += valorCorrida;
+
+            message.innerHTML += `${contador}ª corrida de ${km} km com valor de R$${valorCorrida.toFixed(2)} – ACUMULADO DO DIA R$${acumuladoDia.toFixed(2)}<br>`;
+        }
+    </script>
+</body>
+</html>
