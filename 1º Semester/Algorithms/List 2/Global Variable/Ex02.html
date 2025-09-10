@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <label for="inputValue">Insira o valor que deseja depositar/retirar</label> <br>
+    <input type="number" id="inputValue"> <br>
+    <button onclick="Deposit()">Depositar</button> <br>
+    <button onclick="Withdraw()">Retirar</button> <br>
+    <div id="message"></div> <br>
+    <script>
+        var balance = 0;
+
+        function Deposit() {
+            var operationValue = Number(inputValue.value)
+            balance += operationValue
+            message.innerHTML = `Depósito de R$${operationValue} efetuado! Saldo atual: R$${balance}`
+        }
+        function Withdraw() {
+            var operationValue = Number(inputValue.value)
+            balance -= operationValue
+            message.innerHTML = `Retirada de R$${operationValue} efetuada! Saldo atual: R$${balance}`
+        }
+
+    </script>
+</body>
+</html>

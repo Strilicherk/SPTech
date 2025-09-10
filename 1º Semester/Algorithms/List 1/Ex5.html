@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 05</title>
+</head>
+<body>
+    <label for="inputScore">Insira Sua Nota: </label>
+    <input type="text" id="inputScore">
+    
+    <button onclick=ExibirOpiniaoVo()>Opinião da Vó</button>
+    <button onclick=ExibirOpiniaoMae()>Opinião da Mãe</button>
+    
+    <script>
+        function ExibirOpiniaoVo() {
+            alert("Muito bem, que neto inteligente, porque tirou " + inputScore.value)
+        }
+        
+        function ExibirOpiniaoMae() {
+            alert("Não fez mais que tua obrigação com essa nota " + inputScore.value)
+        }
+    </script>
+</body>
+</html>

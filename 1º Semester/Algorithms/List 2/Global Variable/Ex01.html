@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <button onclick="Add100()">Receber R$100</button>
+    <button onclick="Sub100()">Pagar R$50</button>
+    <div id="message"></div>
+    <script>
+        var balance = 0;
+        function Add100() {
+            balance += 100;
+            message.innerHTML = `Transferência de R$100 recebida! Saldo atual: R$${balance}`
+        }
+        function Sub100() {
+            balance -= 50;
+            message.innerHTML = `Pagamento de R$50 efeutado! Saldo atual: R$${balance}`
+        }
+
+    </script>
+</body>
+</html>

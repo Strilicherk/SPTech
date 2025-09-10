@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+    <label for="inputPizzaFlavor">Insira o sabor da pizza: </label> <br>
+    <input type="text" id="inputPizzaFlavor"> <br>
+    <label for="inputPizzPrice">Insira o valor da pizza: </label> <br>
+    <input type="number" id="inputPizzaPrice"> <br>
+    <label for="inputFriendsNum">Por quantas pessoas o valor deve ser dividido?</label> <br>
+    <input type="number" id="inputFriendsNum"> <br>
+    <button onclick="CalcRateio()">Ver Valor Por Amigo</button>
+    <div id="message"></div>
+</body>
+</html>
+
+<script>
+    function CalcRateio() {
+        message.innerHTML = `Cada amigo vai colaborar com R$${(inputPizzaPrice.value * 1.1) / inputFriendsNum.value} para a pizza de ${inputPizzaFlavor.value}`
+    }
+</script>

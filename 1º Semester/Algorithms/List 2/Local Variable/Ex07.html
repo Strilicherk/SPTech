@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <label for="inputNome">Insira seu nome: </label>
+    <input type="text" id="inputNome">
+    <br>
+    <label for="inputAvCont">Insira a nota da sua avaliação continuada: </label>
+    <input type="number" id="inputAvCont">
+    <br>
+    <label for="inputAvSemestre">Insira a nota da sua avaliação semestral: </label>
+    <input type="number" id="inputAvSemestre">
+    <br>
+    <button onclick="CalcularMedia(Number(inputAvCont.value), Number(inputAvSemestre.value), inputNome.value)">Calcular Média</button>
+    <div id="message"></div>
+</body>
+</html>
+
+<script>
+    function CalcularMedia(av1, av2, nome) {
+        message.innerHTML = `A média de ${nome} será de ${av1 * 0.4 + av2 * 0.6}`
+    }
+</script>

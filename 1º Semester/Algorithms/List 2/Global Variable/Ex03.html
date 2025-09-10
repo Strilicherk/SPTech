@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <label for="inputSales">Valor recebido com venda de peças:</label> <br>
+    <input type="number" id="inputSales"> <br>
+
+    <label for="inputServices">Valor recebido com venda de serviços:</label> <br>
+    <input type="number" id="inputServices"> <br>
+
+    <label for="inputTax">Percentual de imposto (%):</label> <br>
+    <input type="number" id="inputTax"> <br>
+
+    <label for="inputExpenses">Valor dos gastos no mês:</label> <br>
+    <input type="number" id="inputExpenses"> <br>
+
+    <button onclick="Accumulate()">Acumular</button>
+    <div id="message"></div>
+
+    <script>
+        var month = 0
+        var accumulated = 0
+
+        function Accumulate() {
+            var sales = Number(inputSales.value)
+            var services = Number(inputServices.value)
+            var taxPercent = Number(inputTax.value)
+            var expenses = Number(inputExpenses.value)
+
+            var totalReceived = sales + services
+            var taxValue = (totalReceived * taxPercent) / 100
+            var finalBalance = totalReceived - taxValue - expenses
+
+            accumulated += finalBalance
+            month++
+
+            message.innerHTML += `
+                Resumo do mês ${month}, 
+                Total recebido = R$${totalReceived.toFixed(2)} <br> 
+                Valor do Imposto = R$${taxValue.toFixed(2)} <br> 
+                Saldo Final = R$${finalBalance.toFixed(2)} <br>
+                Acumulado até o Momento = R$${accumulated.toFixed(2)} <br>
+                <hr>
+            `
+        }
+    </script>
+</body>
+</html>

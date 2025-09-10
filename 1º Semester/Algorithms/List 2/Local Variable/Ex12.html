@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    <label for="inputKi">Informe o ki base do Sayajin:</label> <br>
+    <input type="number" id="inputKi"> <br><br>
+    Transformar em... <br>
+    <button onclick=TransformSSJ()>SSJ</button>
+    <button onclick=TransformSSJ2()>SSJ2</button>
+    <button onclick=TransformSSJ3()>SSJ3</button>
+    <div id="message"></div>
+
+    <script>
+        function TransformSSJ() {
+            var baseKi = Number(inputKi.value)
+            var newKi = baseKi * 50
+            message.innerHTML = `Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${newKi}.`
+        }
+        function TransformSSJ2() {
+            var baseKi = Number(inputKi.value)
+            var newKi = baseKi * 100
+            message.innerHTML = `Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${newKi}.`
+        }
+        function TransformSSJ3() {
+            var baseKi = Number(inputKi.value)
+            var newKi = baseKi * 200
+            message.innerHTML = `Após se transformar em SSJ3, o ki desse Sayajin passa a ser de ${newKi}.`
+        }
+    </script>
+</body>
+</html>

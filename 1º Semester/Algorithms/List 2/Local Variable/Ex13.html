@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 13</title>
+</head>
+<body>
+    <label for="inputBusFare">Informe o valor da passagem de ônibus (R$):</label> <br>
+    <input type="number" id="inputBusFare"> <br>
+    <label for="inputTrips">Informe a quantidade de viagens por mês:</label> <br>
+    <input type="number" id="inputTrips"> <br>
+    <label for="inputDistance">Informe a distância até o trabalho (km):</label> <br>
+    <input type="number" id="inputDistance"> <br>
+    <button onclick=CalcVT()>Calcular VT</button>
+    <div id="message"></div>
+
+    <script>
+        function CalcVT() {
+            var busFare = Number(inputBusFare.value)
+            var totalTrips = Number(inputTrips.value)
+            var distance = Number(inputDistance.value)
+
+            var busTrips = totalTrips * 0.9
+            var appTrips = totalTrips * 0.1
+
+            var costBus = busTrips * busFare
+            var costApp = appTrips * (distance * 0.75)
+
+            var totalCost = costBus + costApp
+
+            message.innerHTML = `Você vai gastar R$${totalCost.toFixed(2)} por mês com transporte.`
+        }
+    </script>
+</body>
+</html>

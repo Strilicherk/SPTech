@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    <label for="inputVotesA">Insira a quantidade de votos do candidato A: </label>
+    <input type="number" id="inputVotesA">
+    <br>
+    <label for="inputVotesB">Insira a quantidade de votos do candidato B: </label>
+    <input type="number" id="inputVotesB">
+    <br>
+    <label for="inputWhiteVotes">Insira a quantidade de votos brancos: </label>
+    <input type="number" id="inputWhiteVotes">
+    <br>
+    <label for="inputNullVotes">Insira a quantidade de votos nulos: </label>
+    <input type="number" id="inputNullVotes">
+    <br>
+    <button onclick=ElectionResult()>Resultado da Eleição</button>
+    <div id="message"></div>
+
+    <script>
+        function ElectionResult() {            
+            var votesA = Number(inputVotesA.value)
+            var votesB = Number(inputVotesB.value)
+            var whiteVotes = Number(inputWhiteVotes.value)
+            var nullVotes = Number(inputNullVotes.value)
+            
+            var totalVotes = `${votesA + votesB + whiteVotes + nullVotes}`
+            var invalidVotes = `${whiteVotes + nullVotes}`
+            var percentVotesA = `${(100 * votesA) / totalVotes}`
+            var percentVotesB = `${(100 * votesB) / totalVotes}`
+            var percentInvalidVotes = `${(100 * invalidVotes) / totalVotes}`
+            
+            message.innerHTML = `
+                Total de votos: ${totalVotes}.<br> 
+                Candidato A: ${votesA}% (${votesA}) <br>
+                Candidato B: ${votesB}% (${votesB}) <br>
+                Inválidos: ${percentInvalidVotes}% (${totalVotes})`
+        }
+    </script>
+</body>
+</html>
+
+ 
+

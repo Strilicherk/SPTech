@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <h1>Gestão do TVM de Caldeira</h1>
+    <label for="inputDays">Quantidade de dias de operação:</label>
+    <input type="number" id="inputDays">
+
+    <button onclick="ProcessDays()">Processar Dias</button> <br>
+    <br> <button onclick="StopOperation()">Stop Operação</button>
+    <button onclick="RestartProcess()">Reiniciar Processo</button> <br> <br>
+
+    <div id="message"></div>
+
+    <script>
+        var tvm = 1000
+
+        function ProcessDays() {
+            var days = Number(inputDays.value)
+            var previousTvm = tvm
+            tvm -= days * 24
+
+            message.innerHTML += `
+                O TVM anterior era de ${previousTvm} horas, 
+                após ${days} dias de operação o TVM passou para ${tvm} horas <br>
+            `
+        }
+
+        function StopOperation() {
+            var previousTvm = tvm
+            tvm -= 100
+
+            message.innerHTML += `
+                O TVM anterior era de ${previousTvm} horas, 
+                após o Stop de operação o TVM passou para ${tvm} horas <br>
+            `
+        }
+
+        function RestartProcess() {
+            var previousTvm = tvm
+            tvm = 1000
+            message.innerHTML = `
+                Ainda existia ${previousTvm} horas, 
+                com o reinicio do processo o TVM passou para 1000 horas <br>
+            `
+        }
+    </script>
+</body>
+</html>
