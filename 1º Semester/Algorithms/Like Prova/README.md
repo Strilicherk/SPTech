@@ -1,46 +1,15 @@
-# Project Title
+# Algorithms - Like Test Exercise
 
-## Table of Contents
+This file contains the resolution of the exercise, the final objective is be prepared to the final exam.
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+## Question Prompt:
 
-## About <a name = "about"></a>
+Mr. Rebu is an app driver from Piedade, São Paulo. He needs a program that do a daily trips control. For that, the program needs the following inputs:
+- `Ride Distance (in Km).`
+- `Toll Value.`
+- `Fare Type (1,2 or 3).`
 
-Write about 1-2 paragraphs describing the purpose of your project.
-
-## Getting Started <a name = "getting_started"></a>
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
-## Usage <a name = "usage"></a>
-
-Add notes about how to use the system.
+Interactive:
+- `Button "Accumulate Completed Ride" that whill show the following message when clicked:`
+- `XXª corrida de YYY km com valor de R$zzzz,zz – ACUMULADO DO DIA R$ 999,99.`
+- ``
