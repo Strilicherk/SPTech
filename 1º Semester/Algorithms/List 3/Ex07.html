@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <label for="inputFamilyIncome">Insira a renda familiar: </label> <br>
+    <input type="number" id="inputFamilyIncome"> <br> <br>
+    <label for="inputInstallment">Insira o valor da prestação: </label> <br>
+    <input type="number" id="inputInstallment"> <br> <br>
+    <button onclick="CalcFinancing()">Verificar Financiamento</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function CalcFinancing() {
+            var percent = (inputInstallment.value / inputFamilyIncome.value * 100).toFixed(2)
+            div_message.innerHTML = ""
+            div_message.innerHTML = `A prestação corresponde a ${percent}% da renda familiar.`
+            if (percent > 30) {
+                div_message.innerHTML += `<br><span style="color: red"><b>Será necessário complementar a renda familiar<b></span>`
+            }
+        }
+    </script>
+</body>
+</html>
