@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício de CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <style>
+    .container {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: green;
+      color: orange;
+    }
+
+    .cabecalho {
+      background-color: blue;
+      text-align: center;
+    }
+
+    .titulo {
+      font-size: 32px;
+      font-weight: bold;
+      color: pink;
+    }
+
+    .subtitulo {
+      color: white;
+    }
+
+    .conteudo {
+      background-color: brown;
+      color: red;
+    }
+
+    .conteudo h1 {
+      color: purple;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="cabecalho">
+        <p class="titulo">Título Principal</p>
+
+        <p class="subtitulo">Subtítulo que precisa de estilo específico.</p>
+      </div>
+
+      <div class="conteudo">
+        <h1>Titulo do paragrafo</h1>
+        <p>Parágrafo que herda estilos div pai.</p>
+      </div>
+    </div>
+  </body>
+</html>
