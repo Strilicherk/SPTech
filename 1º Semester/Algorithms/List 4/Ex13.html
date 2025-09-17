@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 13</title>
+</head>
+<body>
+    <label for="inputSaldo">Insira o saldo da sua conta: </label> <br>
+    <input type="number" id="inputSaldo"> <br> <br>
+    <button onclick="VerificarFinancas()">Verificar finanças</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function VerificarFinancas() {
+            var saldo = Number(inputSaldo.value)
+
+            if (saldo == 0) {
+                div_message.innerHTML = `<span style="color: black;">Conta zerada</span>`
+            } else if (saldo < 0) {
+                div_message.innerHTML = `<span style="color: red;">Está devendo!</span>`
+            } else {
+                div_message.innerHTML = `<span style="color: blue;">Saldo positivo! :)</span>`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11</title>
+</head>
+<body>
+    <label for="inputFamilyMembers">Insira a quantidade de filhos que você possui: </label> <br>
+    <input type="text" id="inputFamilyMembers"> <br> <br>
+    <button onclick="Analyze()">Analisar Família</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function Analyze() {
+            var members = inputFamilyMembers.value
+            
+            if (members >= 1) {
+                div_message.innerHTML = `<br>Não tem TV.`
+            }
+            if (members >= 2) {
+                div_message.innerHTML += `<br>Não tem internet.`
+            }
+            if (members >= 3) {
+                div_message.innerHTML += `<br>Não tem video game.`
+            }
+            if (members >= 4) {
+                div_message.innerHTML += `<br>Não tem Netflix.`
+            }
+        }
+    </script>
+</body>
+</html>

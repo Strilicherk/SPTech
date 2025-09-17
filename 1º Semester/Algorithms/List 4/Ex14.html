@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+</head>
+<body>
+    <label for="inputSaldo">Insira o saldo da conta: </label> <br>
+    <input type="number" id="inputSaldo"> <br> <br>
+    <label for="inputDebito">Insira o valor do débito: </label> <br>
+    <input type="number" id="inputDebito"> <br> <br>
+    <button onclick="AnalisarConta()">Analisar conta</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function AnalisarConta() {
+            var saldo = Number(inputSaldo.value)
+            var debito = Number(inputDebito.value)
+            var novoSaldo = saldo - debito
+
+            if (novoSaldo < 0) {
+                div_message.innerHTML = `<b style="color: red;">O saldo atual da conta corrente é ${novoSaldo}</b>`
+            } else {
+                div_message.innerHTML = `<i style="color: blue;">O saldo atual da conta corrente é ${novoSaldo}</i>`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 21</title>
+</head>
+<body>
+    <label for="inputFrequencia">Qual a frequência do aluno? (%)</label> <br>
+    <input type="number" id="inputFrequencia"> <br> <br>
+    <button onclick="AnalisarFrequencia()">Analisar frequência</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function AnalisarFrequencia() {
+            var frequencia = Number(inputFrequencia.value)
+            var imgTurista = "https://imgs.search.brave.com/aRQ8Y_J5uYq1dmYB3NkVYIv9g4GUJXbWL48GUjn5eto/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90by1ncmF0aXMv/dHVyaXN0YS1ib3N0/ZXphbmRvLXNvYnJl/LWZvbmRvLWJsYW5j/b18xMzY4LTcwNDMu/anBnP3NlbXQ9YWlz/X2luY29taW5nJnc9/NzQwJnE9ODA"
+            var imgEstudioso = "https://imgs.search.brave.com/BgorVYkXr5x-jaaxhofUK9Bhp1KaQyYlmsAvih-skAI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9jb2xl/Z2lhbC1lc3R1ZGlv/c28tcXVlLWhhY2Ut/bGEtcHJlcGFyYWNp/JUMzJUIzbi1lZHVj/YWNpJUMzJUIzbi01/MTk4NTM4MC5qcGc"
+
+            if (frequencia < 50) {
+                div_message.innerHTML = `<img src="${imgTurista}" alt="Turista" width="200px">`
+            } else {
+                div_message.innerHTML = `<img src="${imgEstudioso}" alt="Estudioso" width="200px">`
+            }
+        }
+    </script>
+</body>
+</html>

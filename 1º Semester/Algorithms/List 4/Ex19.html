@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 19</title>
+</head>
+<body>
+    <label for="inputQtd">Quantidade de chocolates comprados: </label> <br>
+    <input type="number" id="inputQtd"> <br> <br>
+    <button onclick="Compra()">Compra</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function Compra() {
+            var qtd = Number(inputQtd.value)
+            var valorFinal = 0
+
+            if (qtd > 12) {
+                valorFinal = qtd * 2.50
+            } else {
+                valorFinal = qtd * 3.00
+            }
+
+            div_message.innerHTML = `O valor da sua compra foi de R$ ${valorFinal.toFixed(2)}`
+        }
+    </script>
+</body>
+</html>

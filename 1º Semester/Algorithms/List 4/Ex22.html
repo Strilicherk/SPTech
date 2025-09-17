@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 22</title>
+</head>
+<body>
+    <label for="inputTemperatura">Qual a temperatura do ambiente? (°C)</label> <br>
+    <input type="number" id="inputTemperatura"> <br> <br>
+    <button onclick="VerificarClima()">Verificar clima</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function VerificarClima() {
+            var temperatura = Number(inputTemperatura.value)
+            var imgBomEstado = "https://imgs.search.brave.com/F0FHuKQEkW4hLmiKH1qiEXQEUwHq0K7mI3X54GFpHYY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXBlZC5jb20uYnIv/X3VwbG9hZC9jb250/ZW50LzIwMTUvMDMv/MDMvaWRlbnRpZmlj/YXItYWxpbWVudG9z/LWJvbS1lc3RhZG8u/anBn"
+            var imgEstragado = "https://imgs.search.brave.com/grbZPxEJHgxXQWiCILo7fwAvQfl6ZQR9ilMgqneGPec/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y2xpY2tncmF0aXMu/Y29tLmJyL2Jsb2ct/Y2xpY2tncmF0aXMv/d3AtY29udGVudC91/cGxvYWRzLzIwMTYv/MDMvYWxsaW1lbnRv/cy1lc3RyYWdhZG9z/LmpwZw"
+
+            if (temperatura < 10) {
+                div_message.innerHTML = `<img src="${imgBomEstado}" alt="Alimento em bom estado" width="200px">`
+            } else {
+                div_message.innerHTML = `<img src="${imgEstragado}" alt="Alimento estragado" width="200px">`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <label for="inputAge">Insira a sua idade: </label>
+    <input type="number" id="inputAge">
+    <button onclick="CalcPermission()">Ir pra festa</button>
+
+    <script>
+        function CalcPermission() {
+            if (Number(inputAge.value) < 18) {
+                alert("Pedir permissão pro responsável")
+            }
+
+            alert("#partiuFesta")
+        }
+    </script>
+</body>
+</html>
