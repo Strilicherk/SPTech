@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputNumber">Insira um número: </label>
+    <input type="text" id="inputNumber">
+    <button onclick="Validar()">Validar</button>
+    <div id="message"></div>
+    <script>
+        function Validar() {
+            var num = Number(inputNumber.value)
+
+            if (num >= 0 && num <= 100) {
+                message.innerHTML = `Dentro do intervalo`
+            } else {
+                message.innerHTML = `Fora do intervalo`
+            }
+        }
+    </script>
+</body>
+</html>
