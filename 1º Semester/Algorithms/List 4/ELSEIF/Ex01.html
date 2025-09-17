@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01</title>
+</head>
+<body>
+    <label for="inputHeight">Insira sua altura (cm): </label> <br>
+    <input type="text" id="inputHeight"> <br> <br>
+    <button onclick="AnalyzeHeight()">Avaliar Estatura</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function AnalyzeHeight() {
+            var height = Number(inputHeight.value)
+            if (height <= 165) {
+                div_message.innerHTML = `Você pode ser piloto de corrida.`
+            } else if (height <= 180){
+                div_message.innerHTML = `Você pode ser jogador de futebol.`
+            } else {
+                div_message.innerHTML = `Você pode ser jogador de vôlei ou basquete.`
+            }
+        }
+    </script>
+</body>
+</html>

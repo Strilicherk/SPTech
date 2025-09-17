@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03</title>
+</head>
+<body>
+    <label for="inputTemperature">Insira sua temperatura atual: </label> <br>
+    <input type="text" id="inputTemperature"> <br> <br>
+    <button onclick="AnalyzeTemperature()">Analisar Temperatura</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function AnalyzeTemperature() {
+            var temperature = Number(inputTemperature.value)
+            if (temperature < 14) {
+                div_message.innerHTML = `Congelante`
+            } else if (temperature < 21){
+                div_message.innerHTML = `Com Frio`
+            } else if (temperature <= 24){
+                div_message.innerHTML = `Confortável`
+            } else if (temperature <= 31){
+                div_message.innerHTML = `Com Calor`
+            } else {
+                div_message.innerHTML = `Com Escaldante`
+            }
+        }
+    </script>
+</body>
+</html>

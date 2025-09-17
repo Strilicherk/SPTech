@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02</title>
+</head>
+<body>
+    <label for="inputIncome">Insira sua renda familiar mensal: </label> <br>
+    <input type="text" id="inputIncome"> <br> <br>
+    <button onclick="AnalyzeIncome()">Analisar Renda</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function AnalyzeIncome() {
+            var income = Number(inputIncome.value)
+            if (income <= 250) {
+                div_message.innerHTML = `Classe E`
+            } else if (income <= 900){
+                div_message.innerHTML = `Classe D`
+            } else if (income <= 2500){
+                div_message.innerHTML = `Classe C`
+            } else if (income <= 9500){
+                div_message.innerHTML = `Classe B`
+            } else {
+                div_message.innerHTML = `Classe A`
+            }
+        }
+    </script>
+</body>
+</html>

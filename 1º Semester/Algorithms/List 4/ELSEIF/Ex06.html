@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 06</title>
+</head>
+<body>
+    <select id="selectSoccerTeam">
+        <option value="#">Selecione uma opção</option>
+        <option>São Paulo</option>
+        <option>Palmeiras</option>
+        <option>Corinthians</option>
+        <option>Santos</option>
+    </select>
+
+    <button onclick="AnalyzeSoccerTeam()">Fale sobre esse time.</button> <br>
+    <div id="div_message"></div>
+    <script>
+        function AnalyzeSoccerTeam() {
+            var team = selectSoccerTeam.value
+
+            if (team == 'São Paulo') {
+                div_message.innerHTML = `<span style="background-color: black; color: red">Salve o Tricolor Paulista.</span>`
+            } else if (team == 'Corinthians') {
+                div_message.innerHTML = `<span style="background-color: black; color: white">Salve o Corinthians.</span>`
+            } else if (team == 'Santos'){
+                div_message.innerHTML = `<span style="background-color: white; color: black">Agora quem dá a bola é o Santos.</span>`
+            } else if (team == 'Palmeiras') {
+                div_message.innerHTML = `<span style="background-color: green; color: white"> Salve o alviverde imponente.</span>`
+            } else {
+                div_message.innerHTML = `<span style="background-color: red; color: white">Tem certeza que esse time é paulista?</span>`
+            }
+        }
+    </script>
+</body>
+</html>
