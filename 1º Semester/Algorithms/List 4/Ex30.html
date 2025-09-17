@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 30</title>
+</head>
+<body>
+    <label for="inputGoal">Insira sua meta de economia: </label> <br>
+    <input type="number" id="inputGoal"> <br> <br>
+    <label for="inputSaved">Insira quanto dinheiro guardado você possui: </label> <br>
+    <input type="number" id="inputSaved"> <br> <br>
+    <button onclick="AnalyzeEconomy()">Verificar Economia</button> <br>
+    <div id="div_message"></div>
+
+    <script>
+        function AnalyzeEconomy() {
+            var goal = Number(inputGoal.value);
+            var saved = Number(inputSaved.value);
+
+            if (goal == saved) {
+                div_message.innerHTML = `Parabéns, meta alcançada!`
+            } else if (saved > goal) {
+                console.log('saved: ' + saved)
+                console.log('goal: ' + goal)
+                div_message.innerHTML += `<br>Meta ultrapassada em R$${saved - goal}`
+            } else {
+                div_message.innerHTML = `Força! Ainda em busca da meta! Faltam R$${goal - saved}`
+            }
+        }
+    </script>
+</body>
+</html>

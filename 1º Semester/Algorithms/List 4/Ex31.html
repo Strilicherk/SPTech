@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 31</title>
+</head>
+<body>
+    <label for="inputWeight">Insira seu peso: </label> <br>
+    <input type="number" id="inputWeight"> <br> <br>
+    <label for="inputHeight">Insira sua altura: </label> <br>
+    <input type="number" id="inputHeight"> <br> <br>
+    <button onclick="CalcIMC()">Calcular IMC</button> <br>
+    <div id="div_message"></div>
+
+    <script>
+        function CalcIMC() {
+            var weight = Number(inputWeight.value);
+            var height = Number(inputHeight.value);
+            var imc = (weight / height) ** 2
+            console.log(imc)
+            if (imc < 18.5) {
+                div_message.innerHTML = `Abaixo do peso`
+            } else if (imc <= 24.9) {
+                div_message.innerHTML = `Peso normal`
+            } else if (imc <= 29.9){
+                div_message.innerHTML = `Acima do peso`
+            } else {
+                div_message.innerHTML = `Cuidado, risco de obesidade`
+            }
+        }
+    </script>
+</body>
+</html>
