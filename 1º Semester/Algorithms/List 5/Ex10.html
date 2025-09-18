@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 08</title>
+</head>
+<body>
+    <label for="inputTickets">Insira quantas passagens você deseja adquirir: </label>
+    <input type="number" id="inputTickets"> <br>
+    <button onclick="Buy()">Comprar</button>
+    <div id="message"></div>
+
+    <script>
+        function Buy() {
+            var tickets = Number(inputTickets.value)
+            var costPerTicket = Number(4.4)
+            var totalCost
+
+            if (tickets >= 8 && tickets <= 50) {
+                if (tickets >= 8 && tickets <= 19) {
+                    totalCost = (costPerTicket * tickets) * 0.97
+                } else if (tickets >= 20 && tickets <= 40) {
+                    totalCost = (costPerTicket * tickets) * 0.95
+                } else {
+                    totalCost = 204.6
+                }
+            } else {
+                alert("Quantidade inválida para o Fidelidade")
+            }
+            if (minHeight > 1 && maxHeight > minHeight) {
+                if (height >= minHeight && height <= maxHeight) {
+                    message.innerHTML += `<br>O candidato ${name}, com altura de ${height} metros, participará do processo de seleção de piloto.`
+                } else {
+                    message.innerHTML += `<br>Infelizmente, o candidato ${name}, com altura de ${height} metros, não atende os requisitos da seleção`
+                }
+            } else {
+                alert("Intervalo da altura de seleção é inválida! A altura inicial deve ser maior que 1 e a altura final deve ser maior que a altura inicial")
+            }
+        }
+    </script>
+</body>
+</html>

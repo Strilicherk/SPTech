@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 08</title>
+</head>
+<body>
+    <label for="inputMinHeight">Insira uma altura mínima (m): </label>
+    <input type="text" id="inputMinHeight"> <br>
+    <label for="inputMaxHeight">Insira uma altura máxima (m): </label>
+    <input type="text" id="inputMaxHeight"> <br>
+    <label for="inputName">Insira o nome do candidato: </label>
+    <input type="text" id="inputName"> <br>
+    <label for="inputHeight">Insira a altura do candidato (m): </label>
+    <input type="text" id="inputHeight"> <br>
+    
+    <button onclick="Validate()">Verificar Candidato</button>
+    <div id="message"></div>
+
+    <script>
+        function Validate() {
+            var minHeight = Number(inputMinHeight.value)
+            var maxHeight = Number(inputMaxHeight.value)
+            var name = inputName.value
+            var height = Number(inputHeight.value)
+        
+            if (minHeight > 1 && maxHeight > minHeight) {
+                if (height >= minHeight && height <= maxHeight) {
+                    message.innerHTML += `<br>O candidato ${name}, com altura de ${height} metros, participará do processo de seleção de piloto.`
+                } else {
+                    message.innerHTML += `<br>Infelizmente, o candidato ${name}, com altura de ${height} metros, não atende os requisitos da seleção`
+                }
+            } else {
+                alert("Intervalo da altura de seleção é inválida! A altura inicial deve ser maior que 1 e a altura final deve ser maior que a altura inicial")
+            }
+        }
+    </script>
+</body>
+</html>

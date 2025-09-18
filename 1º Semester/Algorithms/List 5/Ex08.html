@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 08</title>
+</head>
+<body>
+    <label for="inputLogin">Login: </label>
+    <input type="text" id="inputLogin">
+    <label for="inputPassword">Senha: </label>
+    <input type="password" id="inputPassword">
+    <label for="input2Auth">Código de segurança: </label>
+    <input type="password" id="input2Auth">
+    <button onclick="Login()">Entrar</button>
+
+    <script>
+        function Login() {
+            var login = inputLogin.value
+            var password = inputPassword.value
+            var code = Number(input2Auth.value)
+        
+            if (login == 'SPTech' && password == 'digital' && code == 123) {
+                alert("Usuário autenticado com sucesso" )
+            } else {
+                alert("Falha na autenticação")
+            }
+        }
+    </script>
+</body>
+</html>
