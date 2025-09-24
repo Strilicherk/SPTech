@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 22</title>
+</head>
+<body>
+    <label for="selectTipoPassageiro">Tipo de passageiro: </label> <br>
+    <select id="selectTipoPassageiro">
+        <option value="1">Comum</option>
+        <option value="2">Estudante</option>
+        <option value="3">Idoso/PNE</option>
+    </select> <br><br>
+
+    <label for="selectTipoPassagem">Tipo de passagem: </label> <br>
+    <select id="selectTipoPassagem">
+        <option value="1">Única</option>
+        <option value="2">Integração</option>
+    </select> <br><br>
+
+    <button onclick="analisarPassagens()">Simular Preço</button> <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function analisarPassagens() {
+            var tipoPassagem = selectTipoPassagem.value
+            var tipoPassageiro = selectTipoPassageiro.value
+            var valorPassagem = Number(4.4)
+
+            if (tipoPassagem == 2) {
+                valorPassagem = Number(5.9)
+            }
+
+            if (tipoPassageiro == 3 || tipoPassageiro == 2) {
+                valorPassagem = Number(valorPassagem) * Number(0.5)
+            }
+
+            div_message.innerHTML = `Valor da passagem escolhida: R$${valorPassagem}`;
+        }
+    </script>
+</body>
+</html>

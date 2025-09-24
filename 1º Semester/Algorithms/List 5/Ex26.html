@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 26</title>
+</head>
+<body>
+    <label for="inputLogin">Login: </label> <br>
+    <input type="text" id="inputLogin"> <br>
+    <label for="inputSenha">Senha: </label> <br>
+    <input type="text" id="inputSenha"> <br>
+    <label for="inputInfo">Informação Pessoal: </label> <br>
+    <input type="text" id="inputInfo"> <br>
+
+    <button onclick="Auth()">Autenticar</button> <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        var contadorTentativas = 3
+        var bloqueado = 0
+
+        function Auth() {
+            var login = inputLogin.value
+            var senha = inputSenha.value
+            var info = inputInfo.value
+
+            if (contadorTentativas == 0) {
+                bloqueado == 1
+                mensagem += `<br> Usuário BLOQUEADO! Procure seu gerente! `
+            } else {
+                if (login == 'ana' && senha == 'braga' && bloqueado == 0 && (info == '1949' || info == 'louro josé')) {
+                    mensagem = "Usuário autenticado"
+                } else {
+                    mensagem = "<br> Falha na autenticação"
+                    contadorTentativas--
+                    mensagem += `<br> Você ainda tem ${contadorTentativas} tentativa(s)`
+                }
+            }
+
+            div_message.innerHTML = mensagem;
+        }
+    </script>
+</body>
+</html>

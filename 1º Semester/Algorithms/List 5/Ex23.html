@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 23</title>
+</head>
+<body>
+    <label for="inputLogin">Login: </label> <br>
+    <input type="text" id="inputLogin"> <br>
+    <label for="inputSenha">Senha: </label> <br>
+    <input type="text" id="inputSenha"> <br>
+    <label for="inputInfo">Informação Pessoal: </label> <br>
+    <input type="text" id="inputInfo"> <br>
+
+    <button onclick="Auth()">Autenticar</button> <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function Auth() {
+            var login = inputLogin.value
+            var senha = inputSenha.value
+            var info = inputInfo.value
+
+            if (login == 'ana' && senha == 'braga' && (info == '1949' || info == 'louro josé')) {
+                mensagem = "Usuário autenticado"
+            } else {
+                mensagem = "Falha na autenticação"
+            }
+
+            div_message.innerHTML = mensagem;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 20</title>
+</head>
+<body>
+    <label for="inputScore">Insira nota do atendimento: </label> <br>
+    <input type="text" id="inputScore">
+
+    <button onclick="rateSupport()">Analisar Atendimento</button> <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function rateSupport() {
+            var score = Number(inputScore.value)
+
+            if (score < 0 || score > 10) {
+                div_message.innerHTML = "Nota inválida."
+            } else if (score >= 0 && score < 5) {
+                div_message.innerHTML = "Não aprovado."
+            } else if (score >= 5 && score <= 6) {
+                div_message.innerHTML = "Neutro."
+            } else {
+               div_message.innerHTML = "Aprovado." 
+            }
+            
+            div_message.innerHTML = mensagem;
+        }
+    </script>
+</body>
+</html>
