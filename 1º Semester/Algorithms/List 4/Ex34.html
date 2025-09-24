@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 34</title>
+</head>
+<body>
+    <label for="selectHumor">Como você está se sentindo hoje?</label> <br>
+    <select id="selectHumor">
+        <option value="">Selecione seu humor</option>
+        <option>Feliz</option>
+        <option>Triste</option>
+        <option>Bravo</option>
+        <option>Surpreso</option>
+        <option>Cansado</option>
+    </select> <br><br>
+
+    <button onclick="MostrarHumor()">Mostrar Humor</button> <br>
+    <div id="div_message" style="font-size: 80px; margin-top: 10px;"></div>
+
+    <script>
+        function MostrarHumor() {
+            var humor = selectHumor.value;
+
+            if (humor == 'Feliz') {
+                div_message.innerHTML = `😊`;
+            } else if (humor == 'Triste') {
+                div_message.innerHTML = `😢`;
+            } else if (humor == 'Bravo') {
+                div_message.innerHTML = `😡`;
+            } else if (humor == 'Surpreso') {
+                div_message.innerHTML = `😲`;
+            } else if (humor == 'Cansado') {
+                div_message.innerHTML = `😴`;
+            } else {
+                div_message.innerHTML = ``;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 35</title>
+</head>
+<body>
+    <label for="inputPokemon">Escolha seu inicial (Bulbasaur, Charmander ou Squirtle):</label> <br>
+    <input type="text" id="inputPokemon"> <br><br>
+
+    <button onclick="EscolherPokemon()">Escolher Pokémon</button> <br>
+    <div id="div_message"></div>
+
+    <script>
+        function EscolherPokemon() {
+            var pokemon = inputPokemon.value.toLowerCase()
+
+            if (pokemon == 'bulbasaur') {
+                div_message.innerHTML = `<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" width="1000px">`;
+            } else if (pokemon == 'charmander') {
+                div_message.innerHTML = `<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" width="1000px">`;
+            } else if (pokemon == 'squirtle') {
+                div_message.innerHTML = `<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" width="1000px">`;
+            } else {
+                div_message.innerHTML = `Pokémon não reconhecido.`;
+            }
+        }
+    </script>
+</body>
+</html>
