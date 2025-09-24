@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+</head>
+<body>
+    <label for="selectPagamento">Selecione o modo de pagamento:</label> <br>
+    <select id="selectPagamento">
+        <option value="Dinheiro">Dinheiro</option>
+        <option value="Cartão de débito">Cartão de débito</option>
+        <option value="Cartão de crédito">Cartão de crédito</option>
+        <option value="Boleto">Boleto</option>
+    </select> <br><br>
+
+    <button onclick="analisarCompra()">Analisar compra</button> <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function analisarCompra() {
+            var metodo = selectPagamento.value;
+
+            if (metodo == 'Dinheiro' || metodo == 'Cartão de débito') {
+                div_message.innerHTML = "Você terá que pagar a vista";
+            } else if (metodo == 'Cartão de crédito' || metodo == 'Boleto') {
+                div_message.innerHTML = "Pagamento poderá ser parcelado";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    <label for="inputENEM">Nota no ENEM:</label> <br>
+    <input type="number" id="inputENEM"> <br><br>
+
+    <label for="inputVestibular">Nota no vestibular interno:</label> <br>
+    <input type="number" id="inputVestibular"> <br><br>
+
+    <button onclick="avaliarAluno()">Avaliação</button>
+
+    <script>
+        function avaliarAluno() {
+            var notaENEM = Number(inputENEM.value);
+            var notaVestibular = Number(inputVestibular.value);
+
+            if (notaENEM >= 800 || notaVestibular >= 700) {
+                alert("Parabéns! Aprovado");
+            } else {
+                alert("Tente semestre que vem!");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 17</title>
+</head>
+<body>
+    <h1>Calculadora de cansaço aprimorada do aluno SPTech</h1>
+    <label for="inputTransporte">Meio de transporte:</label> <br>
+    <input type="text" id="inputTransporte"> <br><br>
+
+    <label for="inputDistancia">Distância da faculdade (KM):</label> <br>
+    <input type="number" id="inputDistancia"> <br><br>
+
+    <button onclick="calcularCansacoAprimorado()">Calcular cansaço</button>
+
+    <script>
+        function calcularCansacoAprimorado() {
+            var transporte = inputTransporte.value.toLowerCase();
+            var distancia = Number(inputDistancia.value);
+
+            if (distancia <= 10) {
+                if (transporte == 'carro' || transporte == 'metrô' || transporte == 'ônibus') {
+                    alert("Tá tranks...");
+                } else {
+                    alert("É... um pouco cansado...");
+                }
+            } else {
+                if (transporte == 'carro') {
+                    alert("É... um pouco cansado...");
+                } else if (transporte == 'metrô' || transporte == 'ônibus') {
+                    alert("Bem cansado...");
+                } else if (transporte == 'bicicleta') {
+                    alert("Vish... tá só o pó...");
+                } else {
+                    alert("Meio de transporte não reconhecido.");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

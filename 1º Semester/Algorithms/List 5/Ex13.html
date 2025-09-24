@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 13</title>
+</head>
+<body>
+    <label for="inputRendaIndividual">Sua renda individual:</label> <br>
+    <input type="number" id="inputRendaIndividual"> <br><br>
+
+    <label for="inputRendaFamiliar">Sua renda familiar:</label> <br>
+    <input type="number" id="inputRendaFamiliar"> <br><br>
+
+    <button onclick="analisarBeneficio()">Terei o benefício</button> <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function analisarBeneficio() {
+            var rendaIndividual = Number(inputRendaIndividual.value);
+            var rendaFamiliar = Number(inputRendaFamiliar.value);
+
+            if (rendaIndividual <= 2000 || rendaFamiliar <= 3000) {
+                div_message.innerHTML = "Você terá direito ao auxílio";
+            } else {
+                div_message.innerHTML = "Sem direito ao auxílio";
+            }
+        }
+    </script>
+</body>
+</html>

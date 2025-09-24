@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8 - Preferências de Augusto</title>
+</head>
+<body>
+    <label for="inputEmpresa">Nome da empresa:</label> <br>
+    <input type="text" id="inputEmpresa"> <br><br>
+
+    <label for="inputBolsa">Valor da bolsa (R$):</label> <br>
+    <input type="number" id="inputBolsa"> <br><br>
+
+    <label for="inputVR">Valor do VR (R$):</label> <br>
+    <input type="number" id="inputVR"> <br><br>
+
+    <label for="inputTempo">Tempo de deslocamento (min):</label> <br>
+    <input type="number" id="inputTempo"> <br><br>
+
+    <button onclick="analisarPreferencia()">É preferida?</button> <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function analisarPreferencia() {
+            var nomeEmpresa = inputEmpresa.value;
+            var bolsa = Number(inputBolsa.value);
+            var vr = Number(inputVR.value);
+            var tempo = Number(inputTempo.value);
+
+            if (bolsa >= 1800 || vr >= 20 || tempo <= 30) {
+                div_message.innerHTML = `A empresa ${nomeEmpresa} é uma de suas preferências`;
+            } else {
+                div_message.innerHTML = `A empresa ${nomeEmpresa} está fora da sua lista`;
+            }
+        }
+    </script>
+</body>
+</html>
