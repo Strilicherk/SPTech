@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula</title>
+</head>
+<body>
+    <label for="input_phrase">Digite uma frase</label>
+    <input oninput=AnalyzePhrase() type="text" id="input_phrase">
+    <div id="message"></div>
+
+    <script>
+        function AnalyzePhrase() {
+            var frase = input_phrase.value.trim();
+            var fraseMinuscula = input_phrase.value.trim().toLowerCase();
+            var tamanhoFrase = frase.length;
+            
+
+            message.innerHTML = `
+                Mensagem Original: ${frase} <br> 
+                Frase Maiúscula: ${frase.toLowerCase()} <br> 
+                Frase Minúscula: ${frase.toUpperCase()} <br>
+                Tamanho da Frase: ${tamanhoFrase} <br> 
+                Substituindo Caracteres: ${frase.replaceAll('a',4).replaceAll('e',3).replaceAll('i',1)}
+                Primeira Letra: ${frase[0]}
+                Terceira Letra: ${frase[2]}
+                Última Letra: ${frase[frase.length -1]}
+
+                `
+
+            if (frase.startsWith('a') || frase.startsWith('A')) {
+                message.innerHTML += `<br> Frase começa com 'a'? <b style="color: green">VÁLIDO</b>`
+            } else {
+                message.innerHTML += `<br> Frase começa com 'a'? <b style="color: red">INVÁLIDA</b>`
+            }
+
+            if (frase.endsWith('.com') || frase.endsWith('.com.br') || frase.endsWith('@sptech.school')) {
+                message.innerHTML += `<br> Frase termina com '.com', '.com.br' ou '@sptech.school'? <b style="color: green">VÁLIDO</b>`
+            } else {
+                message.innerHTML += `<br> Frase termina com '.com', '.com.br' ou '@sptech.school'? <b style="color: red">INVÁLIDA</b>`
+            }
+
+            if (frase.includes('@')) {
+                message.innerHTML += `<br> Frase inclui '@'? <b style="color: green">VÁLIDO</b>`
+            } else {
+                message.innerHTML += `<br> Frase inclui '@'? <b style="color: red">INVÁLIDA</b>`
+            }
+
+            if (fraseMinuscula.includes('feijão')) {
+                message.innerHTML += `<br> Frase inclui 'feijão'? <b style="color: green">VÁLIDO</b>`
+            } else {
+                message.innerHTML += `<br> Frase inclui 'feijão'? <b style="color: red">INVÁLIDA</b>`
+            }
+        }
+    </script>
+</body>
+</html>
