@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Bases Numéricas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="converter-container">
+            <div class="content">
+                <h1>Conversor Amaldiçoado</h1>
+                
+                <div class="input-group">
+                    <label for="decimal">Decimal</label>
+                    <input type="text" id="decimal" placeholder="Ex: 666" oninput="convertFromDecimal()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="binary">Binário</label>
+                    <input type="text" id="binary" placeholder="Ex: 1010011010" oninput="convertFromBinary()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="octal">Octal</label>
+                    <input type="text" id="octal" placeholder="Ex: 1232" oninput="convertFromOctal()">
+                </div>
+                
+                <div class="input-group">
+                    <label for="hexadecimal">Hexadecimal</label>
+                    <input type="text" id="hexadecimal" placeholder="Ex: 29A" oninput="convertFromHexadecimal()">
+                </div>
+                
+                <div id="error" class="error-message"></div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        var decimalInput = document.getElementById('decimal');
+        var binarioInput = document.getElementById('binary');
+        var octalInput = document.getElementById('octal');
+        var hexadecimalInput = document.getElementById('hexadecimal');
+        
+        function convertFromDecimal() {
+            decimalInput.value = decimalInput.value.replace(/[^0-9]/g, '');
+            
+            var decimalValue = parseInt(decimalInput.value, 10);
+            
+            if (isNaN(decimalValue) || decimalInput.value === "") {
+                binarioInput.value = "";
+                octalInput.value = "";
+                hexadecimalInput.value = "";
+                return;
+            }
+            
+            binarioInput.value = decimalValue.toString(2);
+            octalInput.value = decimalValue.toString(8);
+            hexadecimalInput.value = decimalValue.toString(16).toUpperCase();
+        }
+        
+        function convertFromBinary() {
+            binarioInput.value = binarioInput.value.replace(/[^01]/g, '');
+            
+            var decimalValue = parseInt(binarioInput.value, 2);
+            
+            if (isNaN(decimalValue) || binarioInput.value === "") {
+                decimalInput.value = "";
+                octalInput.value = "";
+                hexadecimalInput.value = "";
+                return;
+            }
+            
+            decimalInput.value = decimalValue;
+            octalInput.value = decimalValue.toString(8);
+            hexadecimalInput.value = decimalValue.toString(16).toUpperCase();
+        }
+        
+        function convertFromOctal() {
+            octalInput.value = octalInput.value.replace(/[^0-7]/g, '');
+            
+            var decimalValue = parseInt(octalInput.value, 8);
+            
+            if (isNaN(decimalValue) || octalInput.value === "") {
+                decimalInput.value = "";
+                binarioInput.value = "";
+                hexadecimalInput.value = "";
+                return;
+            }
+            
+            decimalInput.value = decimalValue;
+            binarioInput.value = decimalValue.toString(2);
+            hexadecimalInput.value = decimalValue.toString(16).toUpperCase();
+        }
+        
+        function convertFromHexadecimal() {
+            hexadecimalInput.value = hexadecimalInput.value.replace(/[^0-9a-fA-F]/g, '');
+            
+            var decimalValue = parseInt(hexadecimalInput.value, 16);
+            
+            if (isNaN(decimalValue) || hexadecimalInput.value === "") {
+                decimalInput.value = "";
+                binarioInput.value = "";
+                octalInput.value = "";
+                return;
+            }
+            
+            decimalInput.value = decimalValue;
+            binarioInput.value = decimalValue.toString(2);
+            octalInput.value = decimalValue.toString(8);
+        }
+    </script>
+    
+</body>
+</html>
