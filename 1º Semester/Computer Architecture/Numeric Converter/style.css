@@ -86,14 +86,3 @@ input:focus {
 }
 
 /* FIM GRUPO DE INPUTS */
-
-/*--------------------------------*\
-* BOTÃO E MENSAGEM DE ERRO
-\*--------------------------------*/
-.error-message {
-    color: #ff5252;
-    font-size: 0.9em;
-    margin-top: 10px;
-    height: 1.2em;
-    visibility: hidden;
-}
