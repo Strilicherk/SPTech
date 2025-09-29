@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Metamorphous&family=Roboto+Mono:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    width: 100vw;
-    height: 100vh;
-    font-family: 'Roboto Mono', monospace;
     background-color: #0c0c0c;
+}
+
+main {
+    width: 100vw;
+    height: 97vh;
+    font-family: 'Roboto Mono', monospace;
     color: #e0e0e0;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
 }
-
 
 /* INICIO CONTAINERS PRINCIPAIS */
 
@@ -86,3 +92,14 @@ input:focus {
 }
 
 /* FIM GRUPO DE INPUTS */
+.message {
+    display: flex;
+    align-self:flex-end;
+    justify-content: end;
+}
+
+span {
+    font-family: 'Metamorphous', cursive;
+    color: #d32f2f;
+    font-weight: bold;
+}
