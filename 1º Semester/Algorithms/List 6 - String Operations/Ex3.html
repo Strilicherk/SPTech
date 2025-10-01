@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <label for="input_phrase">Insira uma frase: </label><br>
+    <input type="text" id="input_phrase"><br>
+    <button onclick="AnalyzePhrase()">Analisar Frase</button><br>
+    <div id="message"></div>
+</body>
+</html>
+
+<script>
+    function AnalyzePhrase() {
+        var phrase = input_phrase.value
+        if (phrase.includes("teste") || phrase.includes("abc") || phrase.includes("spam") ) {
+            message.innerHTML += `<span style="color: red">Frase Inválida! </span> <br>`
+        } else {
+            message.innerHTML += `<span style="color: green">Frase Válida! </span> <br>`
+        }
+    }
+</script>

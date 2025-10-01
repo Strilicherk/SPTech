@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Introduction</title>
+</head>
+<body>
+    Fruta:
+    <input type="text" id="input_fruta"> <br> <br>
+    <button onclick="Adicionar()">Adicionar</button>
+    <button onclick="Pesquisar()">Pesquisar</button>
+    <div id="message"></div>
+
+    <script>
+        var listaFrutas = []
+
+        function Adicionar() {
+            var fruta = input_fruta.value.toLowerCase()
+            listaFrutas.push(fruta)
+            message.innerHTML += `${listaFrutas} <br>` // <button onclick="remover(${listaFrutas.length-1, listaFrutas.length+1})">Remover Fruta</button><br>`
+        }
+
+        /* function ExibirLista() {
+            message.innerHTML = `${listaFrutas}`
+        }
+
+        function Remover(start, end) {
+            listaFrutas.splice(start, end)
+        }
+        */
+        function Pesquisar() {
+            var fruta = input_fruta.value.toLowerCase()
+            if (listaFrutas.includes(fruta)) {
+                message.innerHTML += `<br>A fruta ${fruta} está na lista e é o item nº ${listaFrutas.indexOf(fruta)+1}.<br>`
+            } else {
+                message.innerHTML += `<br>A fruta ${fruta} não está na lista.<br>`
+            }
+        }
+    </script>
+</body>
+</html>

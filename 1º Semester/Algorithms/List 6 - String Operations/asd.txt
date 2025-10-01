@@ -1,0 +1,10 @@
+Qua: vetor
+Qui: prática vetor + estrutura de rep
+
+Qua: prática est rep
+Qui: prática est rep
+
+Qua: fôlego
+Qui: fôlego
+
+prova

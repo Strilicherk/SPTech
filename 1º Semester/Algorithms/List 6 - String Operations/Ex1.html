@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <label for="input_phrase">Insira uma frase: </label><br>
+    <input type="text" id="input_phrase"><br>
+    <button onclick="Authenticate()">Autenticar Frase</button><br>
+    <div id="message"></div>
+</body>
+</html>
+
+<script>
+    function Authenticate() {
+        var phrase = input_phrase.value
+        var phraseLength = phrase.length
+
+        message.innerHTML = `Tamanho da Frase: ${phraseLength} <br>`
+        if (phraseLength < 10) {
+            message.innerHTML += `<span style="color: red">Frase Curta! </span> <br>`
+        } else {
+            message.innerHTML += `<span style="color: blue">Frase Longa! </span> <br>`
+        }
+    }
+</script>
