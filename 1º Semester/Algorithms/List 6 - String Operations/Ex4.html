@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <label for="input_palavra1">Digite a primeira palavra:</label>
+    <input type="text" id="input_palavra1"><br><br>
+    <label for="input_palavra2">Digite a segunda palavra:</label>
+    <input type="text" id="input_palavra2">
+    <button onclick="Analisar()">Analisar Palavras</button>
+    <div id="mensagem"></div>
+
+    <script>
+        function Analisar() {
+            var palavra1 = input_palavra1.value;
+            var palavra2 = input_palavra2.value;
+
+            if (palavra1 === palavra2) {
+                mensagem.innerHTML = "As palavras " + palavra1 + " e " + palavra2 + " são exatamente iguais!";
+            } else if (palavra1.toLowerCase() === palavra2.toLowerCase()) {
+                mensagem.innerHTML = "As palavras " + palavra1 + " e " + palavra2 + " possuem o mesmo conteúdo, mas a digitação é diferente (maiúsculas e minúsculas).";
+            } else {
+                mensagem.innerHTML = "As palavras " + palavra1 + " e " + palavra2 + " são completamente diferentes!";
+            }
+        }
+    </script>
+</body>
+</html>

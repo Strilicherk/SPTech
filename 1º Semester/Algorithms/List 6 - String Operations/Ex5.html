@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <label for="input_senha">Digite sua senha:</label>
+    <input type="text" id="input_senha" oninput="Substituir()">
+    <div id="mensagem"></div>
+    <script>
+        function Substituir() {
+            var senhaOriginal = input_senha.value;
+            
+            var senhaModificada = senhaOriginal.replaceAll('a', '@');
+            senhaModificada = senhaModificada.replaceAll('A', '@');
+            senhaModificada = senhaModificada.replaceAll('e', '3');
+            senhaModificada = senhaModificada.replaceAll('E', '3');
+
+            mensagem.innerHTML = senhaModificada;
+        }
+    </script>
+</body>
+</html>

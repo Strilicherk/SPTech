@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercício 3</title>
 </head>
 <body>
-    <label for="input_phrase">Insira uma frase: </label><br>
-    <input type="text" id="input_phrase"><br>
-    <button onclick="AnalyzePhrase()">Analisar Frase</button><br>
-    <div id="message"></div>
+    <label for="input_frase">Digite uma frase:</label>
+    <input type="text" id="input_frase" size="50"><br><br>
+    <label for="input_palavra">Digite a palavra para verificar:</label>
+    <input type="text" id="input_palavra" size="20">
+    <button onclick="Analisar()">Analisar Frase</button>
+    <div id="mensagem"></div>
+
+    <script>
+        function Analisar() {
+            var frase = input_frase.value.toLowerCase();
+            var palavra = input_palavra.value.toLowerCase();
+            
+            var comecaCom = frase.startsWith(palavra);
+            var terminaCom = frase.endsWith(palavra);
+
+            if (comecaCom && terminaCom) {
+                mensagem.innerHTML = "A frase começa e termina com " + palavra + "!";
+            } else if (comecaCom) {
+                mensagem.innerHTML = "A frase começa com " + palavra + "!";
+            } else if (terminaCom) {
+                mensagem.innerHTML = "A frase termina com " + palavra + "!";
+            } else {
+                mensagem.innerHTML = "A frase não começa e nem termina com " + palavra + "!";
+            }
+        }
+    </script>
 </body>
 </html>
-
-<script>
-    function AnalyzePhrase() {
-        var phrase = input_phrase.value
-        if (phrase.includes("teste") || phrase.includes("abc") || phrase.includes("spam") ) {
-            message.innerHTML += `<span style="color: red">Frase Inválida! </span> <br>`
-        } else {
-            message.innerHTML += `<span style="color: green">Frase Válida! </span> <br>`
-        }
-    }
-</script>

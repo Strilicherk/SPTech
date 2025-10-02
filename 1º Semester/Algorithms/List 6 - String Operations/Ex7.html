@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <label for="input_senha">Digite sua senha:</label>
+    <input type="text" id="input_senha" oninput="Verificar()">
+    <dive id="mensagem"></dive>
+
+    <script>
+        function Verificar() {
+            var senha = input_senha.value;
+            var criterios = 0;
+
+            if (senha.length >= 8) {
+                criterios = criterios + 1;
+            }
+            if (senha !== senha.toLowerCase()) {
+                criterios = criterios + 1;
+            }
+            if (senha !== senha.toUpperCase()) {
+                criterios = criterios + 1;
+            }
+            
+            if (criterios === 3) {
+                mensagem.innerHTML = "Forte";
+                mensagem.style.color = 'green';
+            } else if (criterios === 2) {
+                mensagem.innerHTML = "Média";
+                mensagem.style.color = 'orange';
+            } else if (criterios === 1) {
+                mensagem.innerHTML = "Fraca";
+                mensagem.style.color = 'red';
+            } else {
+                mensagem.innerHTML = "Insegura";
+                mensagem.style.color = 'darkred';
+            }
+        }
+    </script>
+</body>
+</html>
