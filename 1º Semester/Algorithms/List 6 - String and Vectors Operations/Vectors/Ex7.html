@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    Insira o nome do filme:
+    <input type="text" id="input_movie">
+    <button onclick="Register()">Cadastrar</button>
+    <div id="message"></div>
+
+    <script>
+        var movieList = []
+        var counter = 1;
+
+        function Register() {
+            var movie = input_movie.value
+            movieList.push(movie)
+            var listLength = movieList.length
+
+            while (counter <= listLength) {
+                if (listLength % 2 == 0) {
+                    message.innerHTML += `<br> <span style="color: red"> Filme ${movieList.length}: ${movieList[listLength -1]} </span> <br>`
+                } else {
+                    message.innerHTML += `<br> <span style="color: blue"> Filme ${movieList.length}: ${movieList[listLength -1]} </span> <br>`
+                }
+                counter++
+            }    
+        }
+    </script>
+</body>
+</html>

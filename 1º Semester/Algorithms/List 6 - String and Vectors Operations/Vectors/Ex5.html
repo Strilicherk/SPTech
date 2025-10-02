@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    Insira o nome do filme:
+    <input type="text" id="input_movie">
+    <button onclick="Register()">Cadastrar Filme</button>
+    <div id="message"></div>
+
+    <script>
+        var movieList = []
+
+        function Register() {
+            var movie = input_movie.value
+                
+            movieList.push(movie)    
+            
+            message.innerHTML += `<br> Filme favorito: ${movieList.length}: ${movieList[movieList.length -1]} <br>`
+
+        }
+    </script>
+</body>
+</html>
