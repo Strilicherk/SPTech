@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+</head>
+<body>
+    Insira uma palavra:
+    <input type="text" id="input_palavra">
+    <button onclick="analisar()">Analisar Palavra</button>
+    <div id="message"></div>
+
+    <script>
+        function analisar() {
+            var palavra = input_palavra.value
+            var contador = 0;
+            var mensagem;
+            
+            while (contador < palavra.length) {
+                mensagem += `${palavra[contador]} <br>`;
+                contador++;    
+            }
+
+            message.innerHTML = mensagem
+            
+        }
+    </script> 
+</body>
+</html>
