@@ -1,0 +1,132 @@
+/* Adicionar aqui toda a estilização criada para sua aplicação. */
+body{
+    margin: 0;
+    font-family: sans-serif;
+
+}
+
+/* HEADER INICIO */
+
+.header{
+    background-color: black;
+    border-bottom: 3px solid #32b9cd ;
+
+}
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+
+}
+.navbar{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e3b062;
+    width: 400px;
+    
+}
+.navbar a{
+    color: #e3b062;
+    text-decoration: none;
+}
+.agora a{
+    color: white;
+    font-weight: bold;
+}
+.titulo{
+    color: #32b9cd;
+}
+
+/* HEADER FIM */
+/* BANNER INICIO */
+
+
+.banner{
+    background-image: url(../assets/imgs/bg-jelly-fish-para_outras_pags.png);
+    background-size: cover;
+    height: 400px;
+}
+.banner .container {
+    display: flex;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.banner .container span{
+    font-weight: bold;
+
+}
+.banner .container p{
+    color: white;
+    width: 150px;
+    font-size: 25px;
+    
+    
+}
+
+/* FIM DO BANNER  */
+
+/* Nosso social  */
+
+
+.social 
+{
+    height: 400px;
+    width: 100%;
+    background-color: azure;
+}
+.social .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.boxes {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 250px;
+    flex-direction: column;
+}
+.box img{
+    height: 40%;
+    width: 40%;
+}
+.box h4{
+    color: blueviolet;
+}
+/* Fim da social */
+
+
+/* Inicio da footer */
+.footer{
+    background-color: #32b9cd;
+
+}
+.footer .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    flex-direction: column;
+    padding: 50px 0 ;
+
+}
+
+
+
+/* Fim da footer  */

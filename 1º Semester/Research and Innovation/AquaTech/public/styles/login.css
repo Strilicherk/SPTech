@@ -1,0 +1,120 @@
+/* Estilização geral da página */
+body {
+    background-image: url(../assets/imgs/bg-jelly-fish-para_outras_pags.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+/* Início do Cabeçalho */
+.cabecalho {
+    border-bottom: 3px solid #32b9cd;
+    background-color: black;
+}
+
+.cabecalho .container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.logo-titulo h2 {
+    color: #32b9cd;
+}
+
+.navegacao ul {
+    align-items: center;
+    color: #e3b062;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 400px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #e3b062;
+}
+
+.navegacao .pagina-atual a {
+    font-weight: bold;
+    color: white;
+}
+/* Fim do Cabeçalho */
+
+/* Início da Seção de Login */
+.secao-login {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.caixa-acesso {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    text-align: center;
+    width: 550px;
+}
+
+.caixa-acesso h3 {
+    color: #e60073;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.form-acesso .grupo-input {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-acesso .grupo-input label {
+    color: #e60073;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-acesso .grupo-input input {
+    border: 1px solid #32b9cd;
+    border-radius: 5px;
+    display: flex;
+    font-size: 14px;
+    outline: none;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-entrar {
+    background-color: #e60073;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 20px;
+    transition: background-color 0.3s ease;
+    width: 50%;
+}
+
+.btn-entrar:hover {
+    background-color: #cc005f;
+}
+/* Fim da Seção de Login */
+
+/* Início do Rodapé */
+.rodape {
+    background-color: #32b9cd;
+    height: 5vh;
+}
+/* Fim do Rodapé */

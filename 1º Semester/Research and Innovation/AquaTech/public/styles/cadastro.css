@@ -1,0 +1,121 @@
+/* Estilização base do corpo da página */
+body {
+    background-image: url(../assets/imgs/bg-jelly-fish-para_outras_pags.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+/* --- Estilos do Cabeçalho --- */
+.cabecalho-principal {
+    background-color: #000;
+    border-bottom: 3px solid #32b9cd;
+}
+
+.cabecalho-principal .conteudo-centralizado,
+.rodape-principal .conteudo-centralizado {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.logo-empresa {
+    color: #32b9cd;
+}
+
+.menu-navegacao ul {
+    width: 400px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #e3b062;
+}
+
+.menu-navegacao a {
+    color: #e3b062;
+    text-decoration: none;
+}
+
+.menu-navegacao .item-ativo a {
+    color: #fff;
+    font-weight: bold;
+}
+/* --- Fim do Cabeçalho --- */
+
+/* --- Estilos da Seção de Inscrição --- */
+.secao-inscricao {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh; /* Usar min-height é mais flexível que height */
+}
+
+.painel-registro {
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 500px;
+}
+
+.painel-registro h2 {
+    font-size: 30px;
+    color: #e60073;
+    margin-bottom: 40px;
+}
+
+.form-novo-usuario .grupo-formulario {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-novo-usuario .grupo-formulario label {
+    color: #e60073;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-novo-usuario .grupo-formulario input {
+    border: 1px solid #32b9cd;
+    border-radius: 5px;
+    display: flex;
+    font-size: 14px;
+    outline: none;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-principal {
+    background-color: #e60073;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 20px;
+    transition: background-color 0.3s ease-in-out;
+    width: 50%;
+}
+
+.btn-principal:hover {
+    background-color: #cc005f;
+}
+/* --- Fim da Seção de Inscrição --- */
+
+/* --- Estilos do Rodapé --- */
+.rodape-principal {
+    background-color: #32b9cd;
+    height: 5vh;
+}
+/* --- Fim do Rodapé --- */
