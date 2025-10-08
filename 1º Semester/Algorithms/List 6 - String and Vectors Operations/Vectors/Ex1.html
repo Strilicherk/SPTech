@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <p>Digite o nome de uma fruta para ver se ela está na nossa lista secreta!</p>
+    <input type="text" id="input_fruit" placeholder="Digite uma fruta">
+    <button onclick="Search()">Pesquisar</button>
+    <div id="message"></div>
+
+    <script>
+        var fruitList = ['maçã', 'banana', 'laranja', 'morango', 'uva', 'abacaxi', 'manga'];
+
+        function Search() {
+            var fruit = input_fruit.value.toLowerCase();
+
+            if (fruitList.includes(fruit)) {
+                message.innerHTML = 'A fruta ' + fruit + ' existe na lista.';
+            } else {
+                message.innerHTML = 'Não existe a fruta ' + fruit + ' na lista.';
+            }
+        }
+    </script>
+</body>
+</html>

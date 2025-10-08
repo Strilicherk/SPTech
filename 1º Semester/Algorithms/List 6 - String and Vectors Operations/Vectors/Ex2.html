@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <p>Adicione seus destinos de viagem:</p>
+    <input type="text" id="input_destination" placeholder="Destino de viagem">
+    <button onclick="RegisterDestination()">Adicionar</button>
+    <br><br>
+
+    <button onclick="ShowFirst()">Primeira viagem</button>
+    <button onclick="ShowThird()">Terceira viagem</button>
+    <button onclick="ShowLast()">Última viagem</button>
+    <div id="message"></div>
+
+    <script>
+        var tripList = [];
+
+        function RegisterDestination() {
+            tripList.push(input_destination.value);
+            input_destination.value = '';
+        }
+
+        function ShowFirst() {
+            if (tripList.length > 0) {
+                message.innerHTML = tripList[0];
+            } else {
+                message.innerHTML = 'Ainda não viajou';
+            }
+        }
+
+        function ShowThird() {
+            if (tripList.length >= 3) {
+                message.innerHTML = tripList[2];
+            } else {
+                message.innerHTML = 'Ainda não fez a terceira viagem';
+            }
+        }
+
+        function ShowLast() {
+            if (tripList.length > 0) {
+                message.innerHTML = tripList[tripList.length - 1];
+            } else {
+                message.innerHTML = 'Ainda não viajou';
+            }
+        }
+    </script>
+</body>
+</html>
