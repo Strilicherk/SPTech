@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <p>Cadastre os bairros onde você morou:</p>
+    <input type="text" id="input_neighborhood" placeholder="Nome do bairro">
+    <button onclick="RegisterNeighborhood()">Cadastrar bairro</button>
+    <br><br>
+
+    <p>Qual moradia você quer relembrar?</p>
+    <input type="text" id="input_number" placeholder="Digite o número (ex: 1)">
+    <button onclick="RecallHome()">Relembrar moradia</button>
+    <div id="message"></div>
+
+    <script>
+        var neighborhoodList = [];
+
+        function RegisterNeighborhood() {
+            neighborhoodList.push(input_neighborhood.value);
+            input_neighborhood.value = '';
+        }
+
+        function RecallHome() {
+            var number = Number(input_number.value);
+
+            if (number > 0 && number <= neighborhoodList.length) {
+                message.innerHTML = neighborhoodList[number - 1];
+            } else {
+                message.innerHTML = 'Você ainda não morou num ' + number + 'º bairro!';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <p>Cadastre seus filmes favoritos, do que mais gosta para o que menos gosta:</p>
+    <input type="text" id="input_movie" placeholder="Nome do filme">
+    <button onclick="RegisterMovie()">Cadastrar filme</button>
+    <br><br>
+
+    <button onclick="ShowFavorites()">Ver Favoritos</button>
+    <div id="message"></div>
+
+    <script>
+        var movieList = [];
+
+        function RegisterMovie() {
+            movieList.push(input_movie.value);
+            input_movie.value = '';
+        }
+
+        function ShowFavorites() {
+            var total = movieList.length;
+            var content = '';
+            
+
+            var i = 0; 
+            while (i < total) {
+                content += movieList[i] + '<br>';
+                i++;
+            }
+
+            if (total > 0) {
+                content += '<br>Total: ' + total + '<br>';
+                content += 'O que filme que mais gosta é ' + movieList[0] + '.<br>';
+                content += 'E desses, o que menos gosta é ' + movieList[total - 1] + '.';
+            } else {
+                content = 'Nenhum filme cadastrado ainda.';
+            }
+
+            message.innerHTML = content;
+        }
+    </script>
+</body>
+</html>
