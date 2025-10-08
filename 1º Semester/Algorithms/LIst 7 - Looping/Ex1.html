@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <button onclick="Count()">Contar</button>
+    <div id="message"></div>
+
+    <script>
+        function Count() {
+            var i = 0;
+            var mensagem = "";
+
+            while (i++<15) {
+                mensagem += `${i} <br>`
+            }
+            message.innerHTML = mensagem
+        }
+    </script>
+</body>
+</html>
