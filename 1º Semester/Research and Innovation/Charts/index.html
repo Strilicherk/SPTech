@@ -9,14 +9,37 @@
 </head>
 <body>
     <div class="container">
-        <canvas id="bar_chart"></canvas>
         <canvas id="line_chart"></canvas>
+        <canvas id="bar_chart"></canvas>
     </div>
     
     <script>
         const ctxBar = document.getElementById('bar_chart');
         const ctxLine = document.getElementById('line_chart');
         
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+                datasets: [{
+                    label: 'Temperatura Média',
+                    data: [30, 29, 28, 25, 22, 13],
+                    borderWidth: 1
+                },{
+                    label: 'Umidade Média',
+                    data: [80, 82, 80, 85, 80, 83],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
         new Chart(ctxBar, {
             type: 'bar',
             data: {
@@ -28,7 +51,7 @@
                     backgroundColor: 'green'
                 },{
                     label: 'Umidade Média',
-                    data: [90, 80, 93, 87, 80, 82],
+                    data: [90, 89, 93, 87, 88, 82],
                     borderWidth: 1,
                     backgroundColor: 'purple'
                 }]
@@ -42,28 +65,7 @@
             }
         });
         
-        new Chart(ctxLine, {
-            type: 'line',
-            data: {
-                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-                datasets: [{
-                    label: 'Temperatura Média',
-                    data: [22, 24, 27, 23, 20, 18],
-                    borderWidth: 1
-                },{
-                    label: 'Umidade Média',
-                    data: [90, 80, 93, 87, 80, 82],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+        
     </script>
 </body>
 </html>
