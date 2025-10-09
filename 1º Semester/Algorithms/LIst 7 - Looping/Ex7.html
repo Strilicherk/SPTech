@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <button onclick="ShowEven()">S2 Pares</button>
+    <div id="message"></div>
+
+    <script>
+        function ShowEven() {
+            var i = 0;
+            var messageText = "";
+
+            while (i++ < 100) {
+                if (i % 2 == 0) {
+                    messageText += `${i} <br>`
+                }
+            }
+
+            message.innerHTML = messageText
+        }
+    </script>
+</body>
+</html>

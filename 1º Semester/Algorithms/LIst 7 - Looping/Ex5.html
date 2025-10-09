@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    Insira o número de voltas que o carro dará:
+    <input type="text" id="input_laps">
+    <button onclick="CalcLap()">Iniciar Corrida</button>
+    <div id="message"></div>
+
+    <script>
+        function CalcLap() {
+            var i = 0;
+            var laps = Number(input_laps.value);
+            var messageText = "";
+
+            while (i++ < laps) {
+                messageText += `Carro dando a ${i}ª volta.<br>`
+            }
+
+            message.innerHTML = messageText + "<br> Corrida Finalizada!"
+        }
+    </script>
+</body>
+</html>

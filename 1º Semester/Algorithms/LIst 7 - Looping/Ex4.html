@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    Insira o nome da pessoa que você mais ama:
+    <input type="text" id="input_name">
+    <input type="number" id="input_love">
+    <button onclick="CalcLove()">Expressar Amor</button>
+    <div id="message"></div>
+
+    <script>
+        function CalcLove() {
+            var i = 0;
+            var max = Number(input_love.value);
+            var name = input_name.value;
+            var messageText = "";
+
+            while (i++ < max) {
+                messageText += `${i} - ${name} eu te amo! Sempre lembre disso!  <br>`
+            }
+            message.innerHTML = messageText
+        }
+    </script>
+</body>
+</html>
