@@ -1,0 +1,226 @@
+12. O endpoint `/sensores/digital` definido em main.js retorna:
+Questão 4Resposta
+
+a.
+Um objeto com informações do servidor.
+
+b.
+A configuração da porta serial ativa.
+
+c.
+As leituras armazenadas em memória do sensor digital. -- correta
+
+d.
+Um arquivo HTML com gráficos.
+
+e.
+Dados salvos no banco MySQL.
+
+15. No Chart.js, a propriedade `data.datasets[0].data` representa:
+Questão 7Resposta
+
+a.
+A cor de fundo do canvas.
+
+b.
+A lista de rótulos do eixo X. 
+
+c.
+Os valores exibidos na série principal do gráfico. -- correta
+
+d.
+O intervalo de tempo das medições.
+
+e.
+O nome do gráfico renderizado.
+
+39. Ao converter o número decimal 25 para binário, o resultado é:
+Questão 33Resposta
+
+a.
+11100
+
+b.
+10011
+
+c.
+10110
+
+d.
+11010
+
+e.
+11001 -- correta
+40. Qual das alternativas representa corretamente a sequência crescente de bases numéricas?
+Questão 35Resposta
+
+a.
+Octal, Decimal, Binário, Hexadecimal
+
+b.
+Binário, Octal, Decimal, Hexadecimal -- correta
+
+c.
+Decimal, Binário, Octal, Hexadecimal
+
+d.
+Hexadecimal, Decimal, Octal, Binário
+
+e.
+Binário, Decimal, Octal, Hexadecimal
+
+42. O barramento de dados é responsável por:
+Questão 37Resposta
+
+a.
+Transportar informações e instruções entre os componentes do sistema. - correta
+
+b.
+Transferir sinais de controle entre o processador e a memória.
+
+c.
+Converter sinais analógicos em digitais.
+
+d.
+Sincronizar o clock da CPU com o disco rígido.
+
+e.
+Alimentar eletricamente os periféricos.
+
+44. A memória ROM é utilizada para:
+Questão 39Resposta
+
+a.
+Executar o sistema operacional.
+
+b.
+Armazenar instruções fixas de inicialização do sistema. -- correta
+
+c.
+Executar programas temporários do usuário.
+
+d.
+Controlar o fluxo de dados entre CPU e periféricos.
+
+e.
+Substituir a memória principal em caso de falha.
+
+45. O ciclo de instrução da CPU é composto basicamente por:
+Questão 40Resposta
+
+a.
+Armazenar, transferir e excluir dados.
+
+b.
+Buscar, decodificar e executar instruções. -- correta
+
+c.
+Copiar, mover e criptografar bits.
+
+d.
+Enviar, receber e retransmitir pacotes.
+
+e.
+Carregar, imprimir e salvar arquivos.
+
+49. O clock de um processador define:
+Questão 44Resposta
+
+a.
+A velocidade de execução das instruções. -- correta
+
+b.
+O número de núcleos físicos.
+
+c.
+A temperatura máxima da CPU.
+
+d.
+O tamanho da memória cache.
+
+e.
+A capacidade máxima do disco rígido.
+
+6. Dentro da função servidor(), o bloco `app.use(...)` tem como finalidade:
+Questão 47Resposta
+
+a.
+Inicializar o banco de dados local.
+
+b.
+Renderizar os gráficos Chart.js.
+
+c.
+Permitir que o navegador acesse a API de diferentes origens (CORS). -- correta
+
+d.
+Configurar as variáveis de ambiente.
+
+e.
+Criar uma conexão persistente com o Arduino.
+
+1) Qual biblioteca é utilizada para gerar os gráficos?
+R: ChartJS
+
+2) O que representa o eixo Y no gráfico do sensor digital?
+R: As métricas
+
+3) Qual método do express inicia o servidor web? 
+R: app.Listen()
+
+4) O que faz a const de habilitar_operacao_inserida?
+R: Condicional que diz se o código deve ou não fazer INSERT;
+
+5) Em qual formato ou tipo os dados do arduino são recebidos no Node.js?
+R: string, separado por ;
+
+6) O que faz o método GET() na main.js?
+R: Uma requisição para puxar os dados que estão vindo no endpoint informado;
+
+7) Como o gráfico diferencia um valor digital de um analógico?
+R: Por conta do index do array que ele puxa;
+
+8) O que acontece quando o gráfico atinge 10 dados registrados?
+R: nada.
+
+9) Quando o HABILITAR_OPERACAO_INSERIR é false, o que a API faz?
+R: Somente exibe os gráficos
+
+10) Em qual linha do html está configurada a API do gráfico?
+R: 76 por ai
+
+11) Qual o objetivo do setInterval()?
+R: Ele define um intervalo para realizar a execução do conteúdo de uma função
+
+12) O endpoint /sensores/analogico serve para que?
+R: Para acessar os dados do analógicos do sensor
+
+13) O que o código faz em caso de erro no fetch()?
+R: Ele retorna uma mensagem de erro: Erro ao obter dados + o erro que o endpoint retornou.
+
+14) No index.html como é feita a chamada da biblioteca Chart.js
+R: Ele puxa a biblioteca pelo script src=""
+
+15) O que representa a variável valores_sensor_analogico
+R: Ela é um array (vetor) que guarda os valores do sensor analogico
+
+16) Demonstre no main.js como as variaveis do servidor web foram definidas.
+R: A principal variavel para a API funcionar é a SERVIDOR_PORTA que guarda a porta (3300)
+
+17) Onde é possível ajustar o tipo do gráfico gerado.
+R: Alterar o parametro type do grafico
+
+18) Qual a forma para exibir os gráficos do projeto no index.html?
+R: tag canvas
+
+19) Qual função é usada para atualizar o gráfico após adicionar dados?
+R: Dentro da função obterDados tem a função update()
+
+20) O elemento tag canvas id=sensor_analogico serve para que?
+R: Serve para visualizar o gráfico
+
+
+
+
+
+
