@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    Digite um número: <br>
+    <input type="text" id="input_num"><br>
+    Digite uma frase: <br>
+    <input type="text" id="input_frase"><br>
+
+    <button onclick="RepeatPhrase()">Papagaio</button>
+    <div id="message"></div>
+
+    <script>
+        function RepeatPhrase() {
+            var num = Number(input_num.value);
+            var phrase = input_frase.value;
+            
+            var i = 0;
+            var messageText = "";
+
+            while (i < num) {
+                messageText += `${phrase} <br>`;
+                i++;
+            }
+
+            message.innerHTML = messageText;
+        }
+    </script>
+</body>
+</html>

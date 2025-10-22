@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+    Insira um número (min: 0, max: 200):
+    <input type="number" id="input_number">
+    <button onclick="ShowMultiples()">Viva o 7!</button>
+    <div id="message"></div>
+
+    <script>
+        function ShowMultiples() {
+            var number = Number(input_number.value)
+
+            if (number < 0 || number > 200) {
+                message.innerHTML = `<span style="color: red">Número Inválido: o número precisa estar entre 0 e 200 </span>`
+            } else {
+                var i = 0;
+                var messageText = "";
+                var multiple = 0;
+                
+                while (multiple+7 <= number) {
+                    multiple = 7*i
+                    messageText += `${multiple} <br>`
+                    i++
+                }
+
+                message.innerHTML = messageText
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 11</title>
+</head>
+<body>
+    Qual tabuada você deseja ver? <br />
+    <select id="select_tabuada">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+    </select>
+    <button onclick="ShowTabuada()">Ver Tabuada</button>
+    <div id="message"></div>
+
+    <script>
+        function ShowTabuada() {
+            var number = Number(select_tabuada.value);
+            var i = 1;
+            var messageText = "";
+
+            while (i <= 10) {
+                var result = number * i;
+                messageText += `${number} x ${i} = ${result} <br>`;
+                i++;
+            }
+
+            message.innerHTML = messageText;
+        }
+    </script>
+</body>
+</html>

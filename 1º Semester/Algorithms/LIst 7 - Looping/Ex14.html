@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+</head>
+<body>
+    Digite o primeiro numero: <br>
+    <input type="text" id="input_n1"><br>
+    Digite o segundo numero: <br>
+    <input type="text" id="input_n2"><br>
+    <button onclick="Analisar()">Curto 3 e 5</button>
+    <div id="message"></div>
+</body>
+</html>
+<script>
+    function Analisar() {
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        var count = n1;
+        var messageText = "";
+
+        while (count <= n2) {
+            if (count % 3 == 0 && count % 5 == 0) {
+                messageText += `${count} - É TRI!É PENTA! <br>`;
+            } else if (count % 3 == 0) {
+                messageText += `${count} - É TRI! <br>`;
+            } else if (count % 5 == 0) {
+                messageText += `${count} - É PENTA! <br>`;
+            } else {
+                messageText += `${count} <br>`;
+            }
+            count++;
+        }
+
+        message.innerHTML = messageText;
+    }
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 20</title>
+</head>
+<body>
+    Digite um número entre 10 e 500: <br>
+    <input type="text" id="input_num"><br>
+    <button onclick="SomarPares()">Somar Pares</button><br>
+    <div id="message"></div>
+</body>
+</html>
+<script>
+    function SomarPares() {
+        var num = Number(input_num.value);
+        var messageText = "";
+        
+        if (num < 10 || num > 500) {
+            messageText = '<span style="color: red;">O número deve ser maior que 10 e menor que 500!</span>';
+        } else {
+            var somaDosPares = 0;
+            var listaPares = "";
+            var contador = 1;
+
+            while (contador <= num) {
+                if (contador % 2 == 0) {
+                    somaDosPares += contador;
+                    listaPares += `${contador} <br>`;
+                }
+                contador++;
+            }
+            messageText = `${listaPares} <br> <b>Soma dos pares: ${somaDosPares}</b>`;
+        }
+        
+        message.innerHTML = messageText;
+    }
+</script>

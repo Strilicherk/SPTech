@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 24</title>
+</head>
+<body>
+    Digite uma frase: <br>
+    <input type="text" id="ipt_frase"><br>
+    Digite uma letra que deseja procurar na frase: <br>
+    <input type="text" id="ipt_letra"><br>
+
+    <button onclick="ProcurarIndices()">Procurar Índices</button><br>
+    <div id="message"></div>
+</body>
+</html>
+<script>
+    function ProcurarIndices() {
+        var fraseCompleta = ipt_frase.value;
+        var caractereBusca = ipt_letra.value;
+        var fraseFormatada = fraseCompleta.toLowerCase().replaceAll(" ", "");
+        var caractereFormatado = caractereBusca.toLowerCase();
+        var comprimentoFrase = fraseFormatada.length;
+        var ocorrencias = 0;
+        var indicesEncontrados = [];
+        var iterador = 0;
+        var messageText = "";
+
+        if (fraseFormatada.includes(caractereFormatado)) {
+            while (iterador < comprimentoFrase) {
+                if (fraseFormatada[iterador] == caractereFormatado) {
+                    ocorrencias++;
+                    indicesEncontrados.push(iterador + 1);
+                }
+                iterador++;
+            }
+            messageText = `
+                Todas as posições em que a letra aparece: ${indicesEncontrados} <br>
+                Quantas vezes ela aparece: ${ocorrencias}
+            `;
+        } else {
+            messageText = `A letra '${caractereBusca}' não foi encontrada na frase.`;
+        }
+
+        message.innerHTML = messageText;
+    }
+</script>

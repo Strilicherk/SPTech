@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de Musculação</title>
+</head>
+<body>
+    De quantos em quantos dias você faz musculação? <br>
+    <input type="text" id="input_dias"><br>
+    <button onclick="ExibirRotina()">Exibir rotina mensal</button>
+    <div id="message"></div>
+</body>
+</html>
+<script>
+    function ExibirRotina() {
+        var intervalo = Number(input_dias.value);
+        var dia = 1;
+        var messageText = "";
+
+        while (dia <= 30) {
+            if ((dia - 1) % intervalo == 0) {
+                messageText += `Dia ${dia} - Musculação<br>`;
+            } else {
+                messageText += `Dia ${dia} - Comer, dormir etc<br>`;
+            }
+            dia++;
+        }
+
+        message.innerHTML = messageText;
+    }
+</script>

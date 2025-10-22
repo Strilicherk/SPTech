@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 23</title>
+</head>
+<body>
+    Digite uma frase: <br>
+    <input type="text" id="input_frase"><br>
+    <button onclick="AnalisarFrase()">Analisar Frase</button><br>
+    <div id="message"></div>
+</body>
+</html>
+<script>
+    function AnalisarFrase() {
+        var textoOriginal = input_frase.value;
+        var totalVogais = 0;
+        var textoTratado = textoOriginal.toLowerCase().replaceAll(" ", "");
+        var comprimentoTexto = textoTratado.length;
+        var indice = 0;
+        var messageText = "";
+
+        while (indice < comprimentoTexto) {
+            var caractereAtual = textoTratado[indice];
+            if (caractereAtual == "a" || caractereAtual == "e" || caractereAtual == "i" || caractereAtual == "o" || caractereAtual == "u") {
+                totalVogais++;
+            }
+            indice++;
+        }
+
+        messageText = `A frase <b>${textoOriginal}</b> possui um total de <b>${comprimentoTexto}</b> letras e <b>${totalVogais}</b> vogais.<br>`;
+        
+        if (textoOriginal.endsWith('!')) {
+            messageText += `A frase é uma afirmação!<br>`;
+        } else if (textoOriginal.endsWith('?')) {
+            messageText += `A frase é uma pergunta!<br>`;
+        }
+
+        message.innerHTML = messageText;
+    }
+</script>

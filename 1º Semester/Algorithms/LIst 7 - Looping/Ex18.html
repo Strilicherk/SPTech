@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 18</title>
+</head>
+<body>
+    Digite um número de 0 a 100: <br>
+    <input type="text" id="input_num"> <br>
+    <button onclick="VerDivisor()">Ver divisor</button> <br>
+    <div id="message"></div>
+</body>
+</html>
+<script>
+    function VerDivisor() {
+        var num = Number(input_num.value);
+        var messageText = "";
+        
+        if (num < 0 || num > 100) {
+            messageText = '<span style="color: red;">O número não pode ser menor que 0 nem maior que 100!</span>';
+        } else {
+            var contador = 1;
+            while (contador <= num) {
+                if (num % contador == 0) {
+                    messageText += `${contador} <br>`;
+                }
+                contador++;
+            }
+        }
+
+        message.innerHTML = messageText;
+    }
+</script>

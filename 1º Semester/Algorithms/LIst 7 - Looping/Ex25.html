@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 25</title>
+</head>
+<body>
+    Digite uma frase: <br>
+    <input type="text" id="input_frase"><br>
+    <button onclick="CodificarFrase()">Codificar Frase</button><br>
+    <div id="message"></div>
+</body>
+</html>
+<script>
+    function CodificarFrase() {
+        var fraseOriginal = input_frase.value;
+        var fraseMinuscula = fraseOriginal.toLowerCase();
+        var totalCaracteres = fraseMinuscula.length;
+        var index = 0;
+        var fraseCodificada = "";
+        var messageText = "";
+
+        while (index < totalCaracteres) {
+            var caractereAtual = fraseOriginal[index];
+            var caractereMinusculo = fraseMinuscula[index];
+            
+            if (caractereMinusculo == "a") {
+                caractereAtual = "1";
+            } else if (caractereMinusculo == "e") {
+                caractereAtual = "2";
+            } else if (caractereMinusculo == "i") {
+                caractereAtual = "3";
+            } else if (caractereMinusculo == "o") {
+                caractereAtual = "4";
+            } else if (caractereMinusculo == "u") {
+                caractereAtual = "5";
+            }
+
+            fraseCodificada += caractereAtual;
+            index++;
+        }
+
+        var sufixoParidade = "";
+        if (totalCaracteres % 2 == 0) {
+            sufixoParidade = "#par";
+        } else {
+            sufixoParidade = "#impar";
+        }
+
+        messageText = `
+            Frase <b>original</b>: ${fraseOriginal} <br>
+            Frase <b>modificada</b>: ${fraseCodificada} ${sufixoParidade} <br>
+            Quantidade de <b>CARACTERES</b> totais na frase: ${totalCaracteres} <br>
+        `;
+        
+        message.innerHTML = messageText;
+    }
+</script>

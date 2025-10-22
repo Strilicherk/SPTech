@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 22</title>
+</head>
+<body>
+    Insira o limite inferior da amostragem (Maior que 1): <br>
+    <input type="text" id="input_inferior"><br>
+    Insira o limite superior da amostragem (Menor que 100 e maior que o limite inferior): <br>
+    <input type="text" id="input_superior"><br>
+    Insira um número para testar a divisibilidade (Entre 3 e 10): <br>
+    <input type="text" id="input_divisor"><br>
+
+    <button onclick="Contar()">Contar</button><br>
+    <div id="message"></div>
+</body>
+</html>
+<script>
+    function Contar() {
+        var inferior = Number(input_inferior.value);
+        var superior = Number(input_superior.value);
+        var divisor = Number(input_divisor.value);
+        var messageText = "";
+
+        if (inferior <= 1) {
+            messageText = '<span style="color: red;">O limite inferior deve ser maior que 1!</span>';
+        } else if (superior <= inferior || superior >= 100) {
+            messageText = '<span style="color: red;">O limite superior deve ser maior que o inferior e menor que 100!</span>';
+        } else if (divisor < 3 || divisor > 10) {
+            messageText = '<span style="color: red;">O divisor deve estar entre 3 e 10!</span>';
+        } else {
+            var contador = inferior;
+            var listaNumeros = "";
+            var qtdNumeros = 0;
+            var somaDosNumeros = 0;
+            var maior = 0;
+            var menor = 0;
+
+            while (contador <= superior) {
+                if (contador % divisor == 0) {
+                    if (qtdNumeros == 0) {
+                        menor = contador;
+                    }
+                    maior = contador;
+                    
+                    listaNumeros += `${contador}, `;
+                    qtdNumeros++;
+                    somaDosNumeros += contador;
+                }
+                contador++;
+            }
+            
+            if (qtdNumeros == 0) {
+                messageText = "Nenhum número no intervalo é divisível pelo divisor informado.";
+            } else {
+                var mediaNum = somaDosNumeros / qtdNumeros;
+                messageText = `
+                    ${listaNumeros.slice(0, -2)} <br><br>
+                    <b>QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS:</b> ${qtdNumeros} <br><br>
+                    <b>SOMATÓRIO DOS NÚMEROS EXIBIDOS:</b> ${somaDosNumeros} <br><br>
+                    <b>MÉDIA DOS NÚMEROS EXIBIDOS:</b> ${mediaNum.toFixed(2)} <br><br>
+                    <b>MAIOR NÚMERO EXIBIDO:</b> ${maior} <br><br>
+                    <b>MENOR NÚMERO EXIBIDO:</b> ${menor} <br><br>
+                `;
+            }
+        }
+        
+        message.innerHTML = messageText;
+    }
+</script>

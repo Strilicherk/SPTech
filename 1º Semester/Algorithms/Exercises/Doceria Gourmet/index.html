@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doceria</title>
+    <style>
+        .item-venda {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input{
+            padding: 8px;
+            margin-right: 5px;
+            width: 150px;
+        }
+        
+        button {
+            width: 350px;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        
+        #div_mensagem {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Controle de Vendas</h1>
+
+    <div class="item-venda">
+        <label>Macarons:</label>
+        <input type="number" id="input_macaron_qtd" placeholder="Quantidade">
+        <input type="number" id="input_macaron_preco" placeholder="Preço">
+    </div>
+    
+    <div class="item-venda">
+        <label>Brigadeiros:</label>
+        <input type="number" id="input_brigadeiro_qtd" placeholder="Quantidade">
+        <input type="number" id="input_brigadeiro_preco" placeholder="Preço">
+    </div>
+    
+    <div class="item-venda">
+        <label>Cupcakes:</label>
+        <input type="number" id="input_cupcake_qtd" placeholder="Quantidade">
+        <input type="number" id="input_cupcake_preco" placeholder="Preço">
+    </div>
+    
+    <div class="item-venda">
+        <label>Cheesecakes:</label>
+        <input type="number" id="input_cheesecake_qtd" placeholder="Quantidade">
+        <input type="number" id="input_cheesecake_preco" placeholder="Preço">
+    </div>
+    
+    <button onclick="VerificarVendas()">Verificar Vendas</button>
+    
+    <div id="div_mensagem"></div>
+    
+    <script>
+        function VerificarVendas() {
+            div_mensagem.innerHTML = "";
+            var qtdMacaron = Number(input_macaron_qtd.value);
+            var precoMacaron = Number(input_macaron_preco.value);
+            
+            var qtdBrigadeiro = Number(input_brigadeiro_qtd.value);
+            var precoBrigadeiro = Number(input_brigadeiro_preco.value);
+            
+            var qtdCupcake = Number(input_cupcake_qtd.value);
+            var precoCupcake = Number(input_cupcake_preco.value);
+            
+            var qtdCheesecake = Number(input_cheesecake_qtd.value);
+            var precoCheesecake = Number(input_cheesecake_preco.value);
+            
+            var valorTotal = (qtdMacaron * precoMacaron) + (qtdBrigadeiro * precoBrigadeiro) + (qtdCupcake * precoCupcake) + (qtdCheesecake * precoCheesecake);
+            var contadorVendas = 1;
+            
+            if (qtdMacaron < 0 || precoMacaron < 0 || qtdBrigadeiro < 0 || precoBrigadeiro < 0 || qtdCupcake < 0 || precoCupcake < 0 || qtdCheesecake < 0 || precoCheesecake < 0) {
+                div_mensagem.innerHTML = `Os valores de preço ou quantidade dos doces não podem ser negativos.`;
+            } else {
+                var contadorMacaron = qtdMacaron;
+                var contadorBrigadeiro = qtdBrigadeiro;
+                var contadorCupcake = qtdCupcake;
+                var contadorCheesecake = qtdCheesecake;
+                var extrato = "";
+                
+                while (contadorMacaron > 0) {
+                    extrato += `Venda ${contadorVendas} - 
+                                <img style="width: 100px; height: auto" src="https://imgs.search.brave.com/O98OioL6vXpnjYa8Xd2Ncf2b_bWvRCl-V4jyLKYNl8E/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2IwLzY3/LzJjL2IwNjcyYzUx/NWEwMjY5MmQzYTU1/NGFjZDczZjBkZjIy/LmpwZw"> - 
+                                R$${precoMacaron} <br>`
+                    contadorMacaron--
+                    contadorVendas++
+                }
+                
+                while (contadorBrigadeiro > 0) {
+                    extrato += `Venda ${contadorVendas} - 
+                                <img style="width: 100px; height: auto" src="https://imgs.search.brave.com/N93Jxfm_ShY84psfHH3JlM_uU2E87tPwekMAZJn3R9k/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNjM5/Mjg5Njk4L3Bob3Rv/L2JyaWdhZGVpcm8u/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PWp6eFVmRDNTTWh0/bHJXcF9SWUZIRHh4/U3RFd2ZiZXk3M2NG/QnZhU0liMzg9"> - 
+                                R$${precoBrigadeiro} <br>`
+                    contadorBrigadeiro--
+                    contadorVendas++
+                }
+                
+                while (contadorCupcake > 0) {
+                    extrato += `Venda ${contadorVendas} - 
+                                <img style="width: 100px; height: auto" src="https://imgs.search.brave.com/4G_uvZ142GtsJI6z4u-5cFrjroaUr4toJXSs-IJ2wok/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9yZW5k/ZXIuZmluZWFydGFt/ZXJpY2EuY29tL2lt/YWdlcy9pbWFnZXMt/cHJvZmlsZS1mbG93/LzQwMC9pbWFnZXMv/YXJ0d29ya2ltYWdl/cy9tZWRpdW1sYXJn/ZS8yL2N1cGNha2Ut/bGF1cmVuLW1hcmVr/LmpwZw"> - 
+                                R$${precoCupcake} <br>`
+                    contadorCupcake--
+                    contadorVendas++
+                }
+                
+                while (contadorCheesecake > 0) {
+                    extrato += `Venda ${contadorVendas} - 
+                                <img style="width: 100px; height: auto" src="https://imgs.search.brave.com/PMkfvO5Z9J01F_1ABPnKsOwrnbsp3l7YQBF1AloAUn4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzMyODQyODUzL3Iv/aWwvN2NjNzcxLzM1/MTc5MjkwNjEvaWxf/MzAweDMwMC4zNTE3/OTI5MDYxX2YydXIu/anBn"> - 
+                                R$${precoCheesecake} <br>`
+                    contadorCheesecake--
+                    contadorVendas++
+                }
+                
+                extrato += `<br>Com a quantidade de ${qtdMacaron} Macarons, ${qtdBrigadeiro} Brigadeiros, ${qtdCupcake} Cupcakes, ${qtdCheesecake} Cheesecakes, a venda totalizará <b>R$${valorTotal.toFixed(2)}</b>`
+                div_mensagem.innerHTML = extrato
+            }
+        }
+    </script>
+</body>
+</html>

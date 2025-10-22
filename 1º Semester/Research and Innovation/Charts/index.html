@@ -20,14 +20,10 @@
         new Chart(ctxLine, {
             type: 'line',
             data: {
-                labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+                labels: ['10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00', '15:15', '15:30', '15:45'],
                 datasets: [{
                     label: 'Temperatura Média',
-                    data: [30, 29, 28, 25, 22, 13],
-                    borderWidth: 1
-                },{
-                    label: 'Umidade Média',
-                    data: [80, 82, 80, 85, 80, 83],
+                    data: [25.9, 26.4, 26.5, 27.3, 27.4, 28.1, 28.3, 27.3, 29.7, 28.9, 29.4, 30.2, 29.8, 30.3, 30.0, 30.2, 30.3, 29.9, 29.5, 29.4, 29.5, 28.5, 28.7, 28.7],
                     borderWidth: 1
                 }]
             },
@@ -39,31 +35,32 @@
                 }
             }
         });
+        
 
-        new Chart(ctxBar, {
-            type: 'bar',
-            data: {
-                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-                datasets: [{
-                    label: 'Temperatura Média',
-                    data: [22, 24, 27, 23, 20, 18],
-                    borderWidth: 1,
-                    backgroundColor: 'green'
-                },{
-                    label: 'Umidade Média',
-                    data: [90, 89, 93, 87, 88, 82],
-                    borderWidth: 1,
-                    backgroundColor: 'purple'
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+        // new Chart(ctxBar, {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        //         datasets: [{
+        //             label: 'Temperatura Média',
+        //             data: [22, 24, 27, 23, 20, 18],
+        //             borderWidth: 1,
+        //             backgroundColor: 'green'
+        //         },{
+        //             label: 'Umidade Média',
+        //             data: [90, 89, 93, 87, 88, 82],
+        //             borderWidth: 1,
+        //             backgroundColor: 'purple'
+        //         }]
+        //     },
+        //     options: {
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true
+        //             }
+        //         }
+        //     }
+        // });
         
         
     </script>

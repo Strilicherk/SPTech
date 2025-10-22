@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 17</title>
+</head>
+
+<body>
+    Insira um intervalo CRESCENTE de números nos campos abaixo<br>
+    Primeiro número: <br>
+    <input type="text" id="input_n1"><br>
+    Segundo número: <br>
+    <input type="text" id="input_n2"><br>
+
+    Insira um número de 3 a 13 para o teste de divisibilidade: <br>
+    <input type="text" id="input_divisor"><br>
+
+    <button onclick="Divisivel()">Divisível</button>
+    <div id="message"></div>
+</body>
+
+</html>
+
+<script>
+    function Divisivel() {
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        var divisor = Number(input_divisor.value);
+        var messageText = "";
+
+        if (divisor < 3 || divisor > 13) {
+            messageText = '<span style="color: red;">O divisor deve estar entre 3 e 13</span>';
+        } else if (n1 > n2) {
+            messageText = '<span style="color: red;">O intervalo de valores numéricos deve ser crescente!</span>';
+        } else {
+            var count = n1;
+            while (count <= n2) {
+                if (count % divisor != 0) {
+                    messageText += `${count} <br>`;
+                }
+                count++;
+            }
+        }
+        
+        message.innerHTML = messageText;
+    }
+</script>
