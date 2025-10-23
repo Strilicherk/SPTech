@@ -1,0 +1,503 @@
+Pedro, analista de TI da empresa XPTO Tech, foi encarregado de organizar e gerenciar os usuários, grupos e arquivos em um dos servidores Linux da empresa. A tarefa dele é aplicar as boas práticas de administração de sistemas para garantir que os usuários e arquivos estejam devidamente configurados. Seu papel é ajudar Pedro a realizar essas tarefas usando comandos no Linux.
+
+Você, como futuro Super Estagiário, irá guiar Pedro por meio de uma série de etapas que incluem a criação de usuários e grupos, manipulação de permissões e organização de arquivos.
+
+1. Criação de um usuário chamado "pedro":
+Comando: Em branco 1 Questão 1
+sudo
+ Em branco 2 Questão 1
+adduser
+ Em branco 3 Questão 1
+pedro
+
+2. Criação de um grupo chamado "administradores":
+Comando: Em branco 4 Questão 1
+sudo
+ Em branco 5 Questão 1
+addgroup
+  Em branco 6 Questão 1
+administradores
+
+3. Criação de um grupo chamado "xptotech":
+Comando: Em branco 7 Questão 1
+sudo
+ Em branco 8 Questão 1
+addgroup
+ Em branco 9 Questão 1
+xptotech
+
+4. Adicionando o usuário "pedro" ao grupo "administradores":
+Comando: Em branco 10 Questão 1
+sudo
+ Em branco 11 Questão 1
+usermod
+ Em branco 12 Questão 1
+-aG
+ Em branco 13 Questão 1
+administradores
+ Em branco 14 Questão 1
+pedro
+
+5. Adicionando o usuário "pedro" ao grupo "sudo":
+Comando: Em branco 15 Questão 1
+sudo
+ Em branco 16 Questão 1
+usermod
+ Em branco 17 Questão 1
+-aG
+ Em branco 18 Questão 1
+sudo
+ Em branco 19 Questão 1
+pedro
+
+6. Adicionando o usuário "pedro" ao grupo "xptotech":
+Comando: Em branco 20 Questão 1
+sudo
+ Em branco 21 Questão 1
+usermod
+ Em branco 22 Questão 1
+-aG
+ Em branco 23 Questão 1
+xptotech
+ Em branco 24 Questão 1
+pedro
+
+7. Acessando o usuário "pedro":
+Comando: Em branco 25 Questão 1
+su
+ Em branco 26 Questão 1
+pedro
+
+8. Acessando o diretório raiz do usuário "pedro":
+Comando: Em branco 27 Questão 1
+cd ..
+
+9. Criando um diretório chamado "projeto":
+Comando: Em branco 28 Questão 1
+mkdir
+ projeto
+
+10. Acessando o diretório "projeto" via caminho absoluto:
+Comando: Em branco 29 Questão 1
+cd
+ Em branco 30 Questão 1
+/home/pedro/projeto
+
+11. Criando um arquivo vazio chamado "senhas.txt":
+Comando: Em branco 31 Questão 1
+touch
+ senhas.txt
+
+12. Editando o arquivo "senhas.txt" com a senha de Pedro:
+Comando: Em branco 32 Questão 1
+nano
+ senhas.txt
+
+13. Verificando as permissões do arquivo "senhas.txt":
+Comando: Em branco 33 Questão 1
+ls
+ Em branco 34 Questão 1
+-l
+
+14. Modificando as permissões do arquivo para que apenas o dono possa ler, escrever e executar:
+Comando: Em branco 35 Questão 1
+chmod
+ Em branco 36 Questão 1
+700
+ senhas.txt
+
+15. Verificando as permissões novamente:
+Comando: Em branco 37 Questão 1
+ls
+ Em branco 38 Questão 1
+-l
+
+16. Alterando a propriedade do grupo dono do arquivo para "xptotech":
+Comando: Em branco 39 Questão 1
+sudo
+ Em branco 40 Questão 1
+chown
+ Em branco 41 Questão 1
+xptotech
+ senhas.txt
+
+17. Criando um novo usuário chamado "optxuser":
+Comando: Em branco 42 Questão 1
+sudo
+ Em branco 43 Questão 1
+adduser
+ Em branco 44 Questão 1
+optxuser
+
+18. Adicionando o usuário "optxuser" ao grupo "xptotech":
+Comando: Em branco 45 Questão 1
+sudo
+ Em branco 46 Questão 1
+usermod
+ Em branco 47 Questão 1
+-aG
+ Em branco 48 Questão 1
+xptotech
+ Em branco 49 Questão 1
+optxuser
+
+19. Transferindo a propriedade do arquivo "senhas.txt" para o usuário "optxuser":
+Comando: Em branco 50 Questão 1
+chown
+ Em branco 51 Questão 1
+optxuser
+ senhas.txt
+
+20. Saindo da seção do usuário Pedro:
+Comando: Em branco 52 Questão 1
+exit
+
+21. Excluindo o usuário "pedro" e seu diretório de trabalho:
+Comando: Em branco 53 Questão 1
+sudo
+ Em branco 54 Questão 1
+userdel
+ Em branco 55 Questão 1
+-r
+ pedro
+
+22. Excluindo o usuário "optxuser" e seu diretório de trabalho:
+Comando: Em branco 56 Questão 1
+sudo
+ Em branco 57 Questão 1
+userdel
+ Em branco 58 Questão 1
+-r
+ optxuser
+
+23. Excluindo o grupo "administradores":
+Comando: Em branco 59 Questão 1
+sudo
+ Em branco 60 Questão 1
+groupdel
+  administradores
+
+24. Excluindo o grupo "xptotech":
+Comando: Em branco 61 Questão 1
+sudo
+ Em branco 62 Questão 1
+groupdel
+  xptotech
+
+25. Verificando os usuários ativos no sistema via arquivo do sistema:
+Comando: Em branco 63 Questão 1
+cat
+ Em branco 64 Questão 1
+/etc/passwd
+
+26. Verificando os grupos ativos no sistema:
+Comando: Em branco 65 Questão 1
+cat
+ Em branco 66 Questão 1
+/etc/group
+
+Como você pode visualizar as permissões de arquivo e diretório no Linux?
+
+Questão 1Resposta
+
+a.
+ls -l
+
+
+b.
+perm -v
+
+
+c.
+cat /permissions
+
+
+d.
+chmod
+
+Qual comando é usado para criar um novo diretório?
+
+Questão 2Resposta
+
+a.
+createdir
+
+
+b.
+newdir
+
+
+c.
+mkdir
+
+
+d.
+makedir
+
+Quais são os três principais tipos de usuários no Linux?
+
+Questão 3Resposta
+
+a.
+Root, Usuário do Sistema e Usuário Comum
+
+
+b.
+Superusuário, Operador e Leitor
+
+
+c.
+Administrador, Padrão e Visitante
+
+
+d.
+Root, Convidado e Desenvolvedor
+
+Qual é a diferença entre um usuário comum e um superusuário (root)?
+
+Questão 4Resposta
+
+a.
+O usuário comum pode instalar programas sem restrição
+
+
+b.
+O usuário comum pode executar todos os comandos do sistema
+
+
+c.
+O superusuário (root) não pode acessar arquivos do sistema
+
+
+d.
+O superusuário (root) tem privilégios administrativos completos
+
+Qual comando permite mudar o dono e grupo de um arquivo?
+
+Questão 5Resposta
+
+a.
+chown
+
+
+b.
+mv
+
+
+c.
+usermod
+
+
+d.
+chmod
+
+Qual comando você pode usar para alterar as permissões de um arquivo no Linux?
+
+Questão 6Resposta
+
+a.
+chmod
+
+
+b.
+chown
+
+
+c.
+usermod
+
+
+d.
+passwd
+
+Como você pode conceder apenas permissões de execução a um arquivo chamado "script.sh" para todos os usuários?
+
+Questão 7Resposta
+
+a.
+chmod 111 script.sh
+
+
+b.
+chmod 222 script.sh
+
+
+c.
+chmod 500 script.sh
+
+
+d.
+chmod 777 script.sh
+
+Quais são as três permissões de arquivo no Linux?
+
+Questão 8Resposta
+
+a.
+Criar, modificar e excluir
+
+
+b.
+Leitura, escrita e execução
+
+
+c.
+Permissão total, permissão parcial e sem permissão
+
+
+d.
+Acesso, modificação e execução
+
+Como você define a senha de um usuário no Linux após criá-lo?
+
+Questão 1Resposta
+
+a.
+setpasswd user
+
+
+b.
+setpassword user
+
+
+c.
+userpasswd user
+
+
+d.
+passwd user
+
+Qual comando lista todos os usuários do sistema?
+
+Questão 2Resposta
+
+a.
+listusers
+
+
+b.
+cat /etc/users
+
+
+c.
+cat /etc/passwd
+
+
+d.
+users
+
+Como você lista todos os grupos do sistema no Linux?
+
+Questão 3Resposta
+
+a.
+cat  /etc/group
+
+
+b.
+cat  /etc/groups
+
+
+c.
+getgroups
+
+
+d.
+listgroups
+
+Qual comando é usado para criar um novo usuário no Linux?
+
+Questão 4Resposta
+
+a.
+createUser
+
+
+b.
+newuser
+
+
+c.
+adduser
+
+
+d.
+usuarioadd
+
+Qual é o propósito do usuário "root" no Linux?
+
+Questão 5Resposta
+
+a.
+O usuário "root" é o único que pode executar comandos de administração no sistema.
+
+
+b.
+O usuário "root" é usado para criar usuários normais no sistema.
+
+
+c.
+O usuário "root" é usado para acesso remoto ao sistema.
+
+
+d.
+O usuário "root" é reservado para o uso exclusivo do administrador do sistema.
+
+Como você adiciona um usuário a um grupo no Linux?
+
+Questão 6Resposta
+
+a.
+addgroup
+
+
+b.
+adduser -g
+
+
+c.
+usermod -aG
+
+
+d.
+usergroup
+
+No Linux, quais são os tipos de usuários que podem ser encontrados em um sistema?
+
+Questão 7Resposta
+
+a.
+Usuários padrão, usuários de sistema e usuários root
+
+
+b.
+Usuários regulares, usuários de serviço e usuários principais
+
+
+c.
+Usuários comuns, usuários especiais e usuários administrativos
+
+
+d.
+Usuários normais, usuários avançados e usuários privilegiados
+
+Qual opção do comando userdel é usada para excluir o diretório home de um usuário ao excluí-lo?
+
+Questão 8Resposta
+
+a.
+-d
+
+
+b.
+-h
+
+
+c.
+-r
+
+
+d.
+-delete
+
+
