@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+    Quantas porções de café com leite você preparou? <br>
+    <input id="inputQtdPorcoes" type="text"><br>
+    <button onclick="exibirIngredientes()">Ver Ingredientes</button><br>
+    <div style="display: flex; flex-flow: row wrap; gap: 10px;" id="div_mensagem"></div>
+    
+    <script>
+        var imgCafe = "https://imgs.search.brave.com/b0syR-xamyreMRBZFiuvz28fafS--aIUp4Ur7RAg7Gk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9mb3RvZ3JhZmlh/LW1hY3JvLWRlLWNh/ZmUtZS1iZWJpZGEt/ZGUtY2FmZV8xMDEy/NzI5LTMwNjg0Lmpw/Zz9zZW10PWFpc19o/eWJyaWQmdz03NDA"
+        function exibirIngredientes() {
+            var qtdPorcoes = Number(inputQtdPorcoes.value);
+            var listaImagens = "";
+            var contadorLeite;
+            var contadorCafe;
+            
+            for (contadorLeite = 0; contadorLeite < qtdPorcoes; contadorLeite++) {
+                listaImagens += `<img src="https://imgs.search.brave.com/jNWCNH1k2tdpQKf5FZqGSO9fRs3Z3rmgemSvtuGmv7I/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9jbG9zZS11cC1k/ZS1mb3JtdWxhLWlu/ZmFudGlsLWNvbS1s/ZWl0ZS1lbS1wby1l/LWNvbGhlci1henVs/LWVtLWZ1bmRvLWNs/YXJvLXBhcmEtYWxp/bWVudGFjYW8tZGUt/YmViZV85Mzc2Nzkt/ODE3OTUuanBnP3Nl/bXQ9YWlzX2h5YnJp/ZCZ3PTc0MA" alt="Colher de Leite" width="150px" height="150px">`;
+            }
+            
+            for (contadorCafe = 0; contadorCafe < qtdPorcoes; contadorCafe++) {
+                listaImagens += `<img src="${imgCafe}" alt="Colher de Café" width="150px" height="150px">`;
+                listaImagens += `<img src="${imgCafe}" alt="Colher de Café" width="150px" height="150px">`;
+            }
+            
+            div_mensagem.innerHTML = listaImagens;
+        }
+    </script>
+</body>
+
+</html>

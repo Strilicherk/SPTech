@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+
+<body>
+    Número de pessoas para a viagem?: <br>
+    <input id="inputTotalPessoas" type="text"><br>
+    <button onclick="analisarViagem()">Analisar</button><br>
+    <div id="div_mensagem">
+
+    </div>
+
+    <script>
+        function analisarViagem() {
+            var totalPessoas = Number(inputTotalPessoas.value);
+            var statusViagem = "";
+            var viajante;
+
+            if (totalPessoas <= 0) {
+                div_mensagem.style.color = "red";
+                div_mensagem.innerHTML = "O número de pessoas deve ser maior que zero!";
+            } else {
+                for (viajante = 1; viajante <= totalPessoas; viajante++) {
+                    div_mensagem.style.color = "black";
+                    if (viajante == 1) {
+                        statusViagem += `Entrou o ${viajante}º viajante (que é o(a) motorista)<br>`;
+                    } else if (viajante > 5) {
+                        statusViagem += `O ${viajante}º viajante não pode embarcar (excesso)!<br>`;
+                    } else {
+                        statusViagem += `Entrou o ${viajante}º viajante<br>`;
+                    }
+                }
+                div_mensagem.innerHTML = statusViagem;
+            }
+        }
+    </script>
+</body>
+
+</html>

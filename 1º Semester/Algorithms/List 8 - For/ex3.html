@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    Qual foi a sua contagem de refrigerantes? <br>
+    <input type="text" id="inputQtdRefri"> <br>
+    <button onclick="exibirContagem()">Exibir Contagem</button>
+    <div id="div_mensagem" style="display: flex; flex-wrap: wrap;">
+</div>
+
+<script>
+    function exibirContagem() {
+        var qtdRefri = Number(inputQtdRefri.value);
+        var iterador;
+        var conteudoHtml = "";
+        
+        for (iterador = 1; iterador <= qtdRefri; iterador++) {
+            conteudoHtml += `<img src="https://imgs.search.brave.com/XrCjEN2U8aZoVdWs1SdfNX-9q4emlWN_dOY7o6-s80Y/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9kMjF3/aWN6YnF4aWIwNC5j/bG91ZGZyb250Lm5l/dC9OX3NRT1lLSWsw/bGpnaTlqOHF1WUFj/VmRSckE9L2ZpdC1p/bi80NTN4NDUzL2Zp/bHRlcnM6ZmlsbChG/RkZGRkYpOmJhY2tn/cm91bmRfY29sb3Io/d2hpdGUpL2h0dHBz/Oi8vcHJvZHV0b3Mt/b3N1cGVyLnMzLnNh/LWVhc3QtMS5hbWF6/b25hd3MuY29tLzkz/NGY3OGU2NmI5Yzc4/ZDBlMjg0MTI4MDU4/ZGMxOGU0NWUzM2Zl/MGMvMzYwLzM4NzE4/YzMxOGQyZGEtMzEu/d2VicA" alt="Lata de Refri" width="100px" height="100px" > `;
+        }
+        div_mensagem.innerHTML = conteudoHtml;
+    }
+</script>
+</body>
+
+</html>

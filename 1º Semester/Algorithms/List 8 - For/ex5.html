@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+
+<body>
+    Quantas vezes você guardou dinheiro?<br>
+    <input id="inputTotalContribuicoes" type="text"><br>
+    
+    Qual o valor de cada contribuição?<br>
+    <input id="inputValorContribuicao" type="text"><br>
+    
+    <button onclick="calcularEconomias()">Calcular economias</button><br><br>
+    
+    <div id="div_mensagem"></div>
+    
+    <script>
+        function calcularEconomias() {
+            var totalContribuicoes = Number(inputTotalContribuicoes.value);
+            var valorContribuicao = Number(inputValorContribuicao.value);
+            
+            var valorAcumulado = 0;
+            var extratoEconomias = "";
+            var contador;
+            
+            for (contador = 1; contador <= totalContribuicoes; contador++) {
+                valorAcumulado += valorContribuicao;
+                extratoEconomias += `${contador}º Depósito: R$ ${valorAcumulado.toFixed(2)}<br>`;
+            }
+            
+            extratoEconomias += `<br>Valor total acumulado: R$ ${valorAcumulado.toFixed(2)}`;
+            
+            div_mensagem.innerHTML = extratoEconomias;
+        }
+    </script>
+</body>
+
+</html>

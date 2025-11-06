@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+
+<body>
+    
+    <button onclick="iniciarContagemEspecial()">Iniciar Contagem</button><br><br>
+    
+    <div id="div_mensagem"></div>
+    
+    <script>
+        function iniciarContagemEspecial() {
+            var relatorioContagem = "";
+            var numeroAtual;
+            
+            for (numeroAtual = 1; numeroAtual <= 100; numeroAtual++) {
+                if (numeroAtual % 3 == 0 && numeroAtual % 5 == 0) {
+                    relatorioContagem += `FizzBuzz<br>`;
+                } else if (numeroAtual % 3 == 0) {
+                    relatorioContagem += `Fizz<br>`;
+                } else if (numeroAtual % 5 == 0) {
+                    relatorioContagem += `Buzz<br>`;
+                } else {
+                    relatorioContagem += `${numeroAtual}<br>`;
+                }
+            }
+            
+            div_mensagem.innerHTML = relatorioContagem;
+        }
+    </script>
+</body>
+
+</html>

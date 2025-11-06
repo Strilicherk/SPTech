@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+
+<body>
+    Quantos aportes foram feitos?<br>
+    <input id="inputQtdAportes" type="number"><br>
+
+    Qual o valor de cada aporte?<br>
+    <input id="inputValorAporte" type="number"><br>
+
+    <button onclick="verificarBonus()">Verificar Bônus</button><br><br>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+        function verificarBonus() {
+            var qtdAportes = Number(inputQtdAportes.value);
+            var valorAporte = Number(inputValorAporte.value);
+
+            var saldoTotal = 0;
+            var relatorioExtrato = "";
+            var iterador;
+
+            for (iterador = 1; iterador <= qtdAportes; iterador++) {
+                saldoTotal += valorAporte;
+
+                if (iterador % 3 == 0) {
+                    saldoTotal *= 1.01;
+                    relatorioExtrato += `${iterador}º Mês: R$ ${saldoTotal.toFixed(2)} <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="15px"><br>`;
+                } else {
+                    relatorioExtrato += `${iterador}º Mês: R$ ${saldoTotal.toFixed(2)}<br>`;
+                }
+            }
+
+            relatorioExtrato += `<br>Valor total guardado: R$ ${saldoTotal.toFixed(2)}`;
+
+            div_mensagem.innerHTML = relatorioExtrato;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+
+<body>
+    Digite sua idade atual:<br>
+    <input id="inputAnosDeVida" type="text" oninput="analisarEtapasVida()"><br><br>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+        function analisarEtapasVida() {
+            var anosDeVida = Number(inputAnosDeVida.value);
+            var relatorioEtapas = "";
+            var nomeEtapa = "";
+            var contadorAnos;
+
+            if (anosDeVida < 0 || isNaN(anosDeVida)) {
+                div_mensagem.innerHTML = "Digite uma idade válida.";
+            } else {
+                for (contadorAnos = 0; contadorAnos <= anosDeVida; contadorAnos++) {
+                    if (contadorAnos <= 4) {
+                        nomeEtapa = "Primeira Infância";
+                    } else if (contadorAnos <= 6) {
+                        nomeEtapa = "Pré-escolar";
+                    } else if (contadorAnos <= 10) {
+                        nomeEtapa = "Segunda Infância";
+                    } else if (contadorAnos <= 18) {
+                        nomeEtapa = "Adolescência";
+                    } else if (contadorAnos <= 50) {
+                        nomeEtapa = "Adulto";
+                    } else if (contadorAnos <= 100) {
+                        nomeEtapa = "Melhor idade";
+                    } else {
+                        nomeEtapa = "Matusalém";
+                    }
+                    relatorioEtapas += `${contadorAnos} anos (${nomeEtapa})<br>`;
+                }
+                div_mensagem.innerHTML = relatorioEtapas;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+
+<body>
+    Capacidade do veículo: <br>
+    <input id="inputCapacidadeVeiculo" type="text"><br>
+    Total de interessados: <br>
+    <input id="inputTotalInteressados" type="text"><br>
+    <button onclick="processarFila()">Processar Fila</button><br>
+    <div id="div_mensagem">
+        
+    </div>
+    
+    <script>
+        function processarFila() {
+            var totalInteressados = Number(inputTotalInteressados.value);
+            var capacidadeVeiculo = Number(inputCapacidadeVeiculo.value);
+            var listaEmbarque = "";
+            var listaEspera = "";
+            var pessoaAtual;
+            
+            if (totalInteressados <= 0) {
+                div_mensagem.style.color = "red";
+                div_mensagem.innerHTML = "O total de interessados deve ser positivo!";
+            } else {
+                for (pessoaAtual = 1; pessoaAtual <= totalInteressados; pessoaAtual++) {
+                    div_mensagem.style.color = "black";
+                    if (pessoaAtual == 1) {
+                        listaEmbarque += `O ${pessoaAtual}º interessado embarcou (motorista)<br>`;
+                    } else if (pessoaAtual > capacidadeVeiculo) {
+                        listaEspera += `O ${pessoaAtual}º interessado terá que esperar!<br>`;
+                    } else {
+                        listaEmbarque += `O ${pessoaAtual}º interessado embarcou<br>`;
+                    }
+                }
+                div_mensagem.innerHTML = `${listaEmbarque}<br>${listaEspera}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
