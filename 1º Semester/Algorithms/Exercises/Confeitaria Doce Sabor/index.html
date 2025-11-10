@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doce Sabor</title>
+</head>
+
+<body>
+    Identificação do Lote: <br>
+    <input type="text" id="nome_bolo"> <br>
+    Unidades no Lote (min 5): <br>
+    <input type="number" id="qtd_bolo_dia"> <br>
+    Unidades com Avaria (max total): <br>
+    <input type="number" id="qtd_bolo_avaria"> <br>
+    Matéria-prima (kg, > 0): <br>
+    <input type="number" id="peso_total_farinha"> <br>
+    Tempo de Produção (min, >= 15):<br>
+    <input type="number" id="tempo_total_gasto"> <br>
+    <button onclick="AnalisarProducao()">Analisar Produção</button><br>
+    <div id="div_mensagem"></div>
+    <div id="div_futuro"></div>
+    
+
+    <script>
+        var nomeBolo;
+        var qtdBoloDia;
+        var qtdBoloAvaria;
+        var pesoTotalFarinha;
+        var tempoTotalGasto;
+        
+        var camposValidos = false;
+        
+        var qtdBolosValidos;
+        var eficiencia;
+        var mediaFarinha;
+        var farinhaDesperdicada;
+        var tempoMedioPreparo;
+        
+        var mensagem;
+        
+        function AnalisarProducao() {
+            ValidarCampos();
+            if (camposValidos) {
+                GerarRelatorio();
+                AnalisarDesempenho();
+                
+                div_mensagem.innerHTML = mensagem;
+
+                setTimeout(function() {
+                    ProjetarEficiencia();
+                }, 10);
+            }
+        }
+        
+        function ValidarCampos() {
+            nomeBolo = nome_bolo.value;
+            qtdBoloDia = Number(qtd_bolo_dia.value);
+            qtdBoloAvaria = Number(qtd_bolo_avaria.value);
+            pesoTotalFarinha = Number(peso_total_farinha.value);
+            tempoTotalGasto = Number(tempo_total_gasto.value);
+            
+            if (nomeBolo != '' && qtdBoloDia >= 5 && qtdBoloAvaria <= qtdBoloDia && qtdBoloAvaria >= 0 && pesoTotalFarinha > 0 && tempoTotalGasto >= 15 ) {
+                camposValidos = true;
+            } else {
+                div_mensagem.innerHTML = `
+                    Erro de preenchimento! Verifique as informações e confirme: <br>
+                    O nome do bolo deve estar preenchido. <br>
+                    A quantidade total de bolos produzidos deve ser no mínimo 5.  <br>
+                    A quantidade máxima de bolos defeituosos deve ser igual ou menor ao total produzido.  <br>
+                    O peso da farinha deve ser maior que 0.  <br>
+                    O tempo total gasto na produção deve ser maior que 15 minutos. <br>
+                `;
+                div_futuro.innerHTML = "";
+                camposValidos = false;
+            }
+        }
+        
+        function GerarRelatorio() {
+            qtdBolosValidos = qtdBoloDia - qtdBoloAvaria;
+            eficiencia = Math.floor(qtdBolosValidos * 100 / qtdBoloDia);
+            mediaFarinha = Math.floor(pesoTotalFarinha / qtdBoloDia);
+            farinhaDesperdicada = Math.floor(mediaFarinha * qtdBoloAvaria);
+            tempoMedioPreparo = Math.floor(tempoTotalGasto / qtdBoloDia);
+
+            mensagem = `
+                ANÁLISE DA PRODUÇÃO 
+                Bolo: ${nomeBolo} <br>
+                Produzidos: ${qtdBoloDia} | Defeituosos: ${qtdBoloAvaria} <br>
+                Bolos Válidos: ${qtdBolosValidos} | Eficiência: ${eficiencia} % <br>
+                Farinha Total: ${pesoTotalFarinha} kg | Média de Farinha por Bolo: ${mediaFarinha} kg <br>
+                Total de Farinha Desperdiçada: ${farinhaDesperdicada} kg <br>
+                Tempo Total: ${tempoTotalGasto}min | Tempo Médio por Bolo: ${tempoMedioPreparo}min <br>
+            `;
+        }
+        
+        function AnalisarDesempenho() {
+            if (eficiencia < 75) {
+                mensagem += "<br> <br> Produção abaixo do ideal – necessário revisar o processo de preparo.";
+            } else if (eficiencia <= 90) {
+                mensagem += "<br> <br> Produção boa – rendimento dentro do esperado.";
+            } else {
+                mensagem += "<br> <br> Produção excelente – ótimo desempenho da equipe.";
+                
+                if (mediaFarinha < 0.8 && tempoMedioPreparo < 20) {
+                    mensagem += "<br> <br> Processo otimizado – excelente aproveitamento de tempo e ingredientes.";
+                }
+            }
+        }
+        
+        function ProjetarEficiencia() {
+            var diasProjecao = prompt("Dias para projeção de eficiência");
+            
+            while (diasProjecao <= 0 || isNaN(diasProjecao) || diasProjecao == null || diasProjecao.trim() == "") {
+                diasProjecao = prompt("Projeção inválida! A quantidade de dias deve ser maior que 0!");
+            }
+            
+            var relatorioProjecao = `PROJEÇÃO DE EFICIÊNCIA: ${diasProjecao} DIAS<br><br>`;
+            var eficienciaProjetada = eficiencia; 
+            var acrescimoFixo = 2;
+            var acrescimoBonus = 0.5;
+            
+            for (var dia = 1; dia <= diasProjecao; dia++) {
+                
+                eficienciaProjetada += acrescimoFixo; 
+                
+                if (dia % 3 == 0) {
+                    eficienciaProjetada += acrescimoBonus; 
+                }
+                
+                if (eficienciaProjetada > 100) {
+                    eficienciaProjetada = 100;
+                    relatorioProjecao += `Dia ${dia} - Eficiência estimada 100%<br>`;
+                } else {
+                    var eficienciaProjetadaFormatada = Math.floor(eficienciaProjetada * 100) / 100;
+                    relatorioProjecao += `Dia ${dia} - Eficiência estimada ${eficienciaProjetadaFormatada}%<br>`;
+                }
+            }
+            
+            div_futuro.innerHTML = relatorioProjecao;
+        }
+    </script>
+</body>
+</html>
