@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11</title>
+</head>
+<body>
+    <label>
+        Digite o preço de um produto:
+        <br>
+        <input type="text" id="entrada_preco">
+        <br>
+    </label>
+    <button onclick="registrarPreco()">Cadastrar</button>
+    <button onclick="exibirRelatorio()">Atualizar Estoque</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var colecaoPrecos = [];
+    function registrarPreco() {
+        var precoDigitado = Number(entrada_preco.value);
+        if (precoDigitado > 0 && !isNaN(precoDigitado)) {
+            colecaoPrecos.push(precoDigitado);
+            entrada_preco.value = "";
+        } else {
+            alert("Insira um preço válido.");
+        }
+    }
+    function exibirRelatorio() {
+        var saidaHtml = "";
+        var somaPrecos = 0;
+        var totalItens = colecaoPrecos.length;
+        for (var indice = totalItens - 1; indice >= 0; indice--) {
+            var itemPreco = colecaoPrecos[indice];
+            saidaHtml += `R$ ${itemPreco.toFixed(2)} <br>`;
+            somaPrecos += itemPreco;
+        }
+        saidaHtml += `<br>Você tem ${totalItens} produtos cadastrados em estoque <br>`;
+        saidaHtml += `Seu estoque vale R$ ${somaPrecos.toFixed(2)}`;
+        div_mensagem.innerHTML = saidaHtml;
+    }
+</script>

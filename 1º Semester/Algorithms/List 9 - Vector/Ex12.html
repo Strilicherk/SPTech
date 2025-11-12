@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    <label>
+        Digite o nome de um de seus filhos:
+        <br>
+        <input type="text" id="entrada_dependente">
+        <br>
+    </label>
+    <button onclick="adicionarRegistro()">Cadastrar</button>
+    <button onclick="calcularDespesas()">Atualizar Família</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var colecaoDependentes = [];
+    function adicionarRegistro() {
+        var nomeDigitado = entrada_dependente.value.toLowerCase().trim();
+        var nomeEncontrado = false;
+        for (var i = 0; i < colecaoDependentes.length; i++) {
+            if (colecaoDependentes[i] == nomeDigitado) {
+                nomeEncontrado = true;
+            }
+        }
+        if (nomeEncontrado == false) {
+            colecaoDependentes.push(nomeDigitado);
+            entrada_dependente.value = "";
+        } else {
+            alert(`Não pode mais de 1 filho com o mesmo nome!`);
+        }
+    }
+    function calcularDespesas() {
+        var saidaHtml = "";
+        var custoPrivado = colecaoDependentes.length * 3000; 
+        var custoPublico = colecaoDependentes.length * 1500;
+        if (colecaoDependentes.length == 0) {
+            saidaHtml += `Você ainda não cadastrou nenhum filho.`;
+        } else {
+            saidaHtml += `Você tem ${colecaoDependentes.length} filhos <br>
+            Seu custo mensal será aproximadamente R$${custoPrivado} se colocá-los em escola particular ou R$${custoPublico} se eles estudarem em escola pública`;  
+        }
+        div_mensagem.innerHTML = saidaHtml;
+    }
+</script>

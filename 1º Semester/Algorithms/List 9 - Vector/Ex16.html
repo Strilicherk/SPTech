@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 16</title>
+</head>
+<body>
+    <label>
+        Digite o nome do produto:
+        <br>
+        <input type="text" id="entrada_nome">
+        <br>
+    </label><label>
+        Digite o preço da compra do produto:
+        <br>
+        <input type="text" id="entrada_preco">
+        <br>
+    </label>
+    <button onclick="processarCadastro()">Cadastrar</button>
+    <button onclick="gerarRelatorioAvancado()">Relatório de Estoque</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var colecaoNomes = [];
+    var colecaoPrecos = [];
+    function processarCadastro() {
+        var nomeProduto = entrada_nome.value.trim(); 
+        var precoProduto = Number(entrada_preco.value);  
+        
+        if (nomeProduto == "" || precoProduto <= 0 || isNaN(precoProduto)) {
+            alert(`Insira os valores corretos nos campos Nome e Preço!`);
+        } else {
+            colecaoNomes.push(nomeProduto);
+            colecaoPrecos.push(precoProduto);
+            entrada_nome.value = "";
+            entrada_preco.value = "";
+        }
+    }
+    function gerarRelatorioAvancado() {
+        if (colecaoNomes.length == 0) {
+            div_mensagem.innerHTML = "Nenhum produto cadastrado.";
+            return;
+        }
+        var saidaHtml = `Total de produtos: ${colecaoNomes.length} <br><br>`;
+        var nomeMaisCaro = colecaoNomes[0];
+        var precoMaisCaro = colecaoPrecos[0];
+        var nomeMaisBarato = colecaoNomes[0];
+        var precoMaisBarato = colecaoPrecos[0];
+        var somaPrecosCompra = 0;
+        var somaPrecosVenda = 0;
+        for (var i = 0; i < colecaoNomes.length; i++) {
+            var nomeItem = colecaoNomes[i];
+            var precoItem = colecaoPrecos[i];
+            var precoVenda = precoItem * 1.25;
+            saidaHtml += `Produto ${i + 1}: ${nomeItem} <br>
+            Preço de compra: R$${precoItem.toFixed(2)}. Vender por R$${precoVenda.toFixed(2)} <br>`;
+            somaPrecosCompra += precoItem;
+            somaPrecosVenda += precoVenda;
+            if (precoItem > precoMaisCaro) {
+                precoMaisCaro = precoItem;
+                nomeMaisCaro = nomeItem;
+            }
+            if (precoItem < precoMaisBarato) {
+                precoMaisBarato = precoItem;
+                nomeMaisBarato = nomeItem;
+            }
+        }
+        var totalItens = colecaoNomes.length;
+        var mediaPrecoVenda = somaPrecosVenda / totalItens;
+        
+        saidaHtml += `<br><b>Relatório Adicional:</b><br>`;
+        saidaHtml += `a) Produto mais caro: ${nomeMaisCaro} (R$${precoMaisCaro.toFixed(2)})<br>`;
+        saidaHtml += `b) Produto mais barato: ${nomeMaisBarato} (R$${precoMaisBarato.toFixed(2)})<br>`;
+        saidaHtml += `c) Soma dos preços de compra: R$${somaPrecosCompra.toFixed(2)} <br>`;
+        saidaHtml += `d) Média de preço de venda: R$${mediaPrecoVenda.toFixed(2)}`;
+        
+        div_mensagem.innerHTML = saidaHtml;
+    }
+</script>

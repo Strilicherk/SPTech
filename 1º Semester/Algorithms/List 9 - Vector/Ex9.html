@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    <label>
+        Digite o nome do projeto que você já criou:
+        <br>
+        <input type="text" id="entrada_projeto">
+        <br>
+    </label>
+    <button onclick="registrarItem()">Registrar projeto</button>
+    <button onclick="exibirHistorico()">Mostrar Projetos</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var colecaoProjetos = [];
+    function registrarItem() {
+        var nomeItem = entrada_projeto.value;
+        colecaoProjetos.push(nomeItem); 
+
+        var totalProjetos = colecaoProjetos.length;
+        var nivelProfissional = "";
+        
+        if (totalProjetos <= 4) {
+            nivelProfissional = "Júnior";
+        } else if (totalProjetos <= 12) {
+            nivelProfissional = "Pleno";
+        } else {
+            nivelProfissional = "Sênior";
+        }
+
+        var textoSaida = `Você já fez ${totalProjetos} projetos. Por isso você é um profissional ${nivelProfissional}`;
+        
+        div_mensagem.innerHTML = textoSaida;
+    }
+    
+    function exibirHistorico() {
+        var conteudoHtml = "";
+        for (var indice = colecaoProjetos.length - 1; indice >= 0; indice--) {
+            var itemAtual = colecaoProjetos[indice];
+            conteudoHtml += `${colecaoProjetos.length - indice}. ${itemAtual} <br>`;
+        }  
+        div_mensagem.innerHTML = conteudoHtml;
+    }
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+    <label>
+        Digite as linhas de ônibus que você pega:
+        <br>
+        <input type="text" id="entrada_linha">
+        <br>
+    </label>
+    <label>
+        Pesquise pela linha que você já pegou antes:
+        <br>
+        <input type="text" id="entrada_pesquisa">
+        <br>
+    </label>
+    <button onclick="registrarViagem()">Gravar Busão</button>
+    <button onclick="buscarHistorico()">Pesquisar</button>
+    
+    <div id="div_lista"></div>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var colecaoLinhas = [];
+    function registrarViagem() {
+        var nomeLinha = entrada_linha.value;
+        var saidaHtml = "";
+        colecaoLinhas.push(nomeLinha); 
+        for (var indice = colecaoLinhas.length - 1; indice >= 0; indice--) {
+            var itemAtual = colecaoLinhas[indice];
+            saidaHtml += `${colecaoLinhas.length - indice}. ${itemAtual} <br>`;
+        }
+        div_lista.innerHTML = saidaHtml;
+        div_mensagem.innerHTML = "";
+    }
+    function buscarHistorico() {
+        var termoBusca = entrada_pesquisa.value;
+        var indicesViagem = [];
+        var textoResultado = "";
+        for (var contador = 0; contador < colecaoLinhas.length; contador++) {
+            if (colecaoLinhas[contador] == termoBusca) {
+                indicesViagem.push(contador + 1);
+            }
+        }
+        if (indicesViagem.length == 0) {
+            textoResultado += `Você nunca pegou essa linha`;
+        } else {
+            textoResultado += `Você já pegou essa linha ${indicesViagem.length} vezes, nessa ordem: `;
+            for (var pos = 0; pos < indicesViagem.length; pos++) {
+                textoResultado += indicesViagem[pos];
+                if (pos < indicesViagem.length - 1) {
+                    textoResultado += `, `;
+                }
+            }
+        }
+        div_mensagem.innerHTML = textoResultado;
+    }
+</script>

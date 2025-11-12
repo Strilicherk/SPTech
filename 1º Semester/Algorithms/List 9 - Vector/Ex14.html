@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+</head>
+<body>
+    <label>
+        Digite um número qualquer:
+        <br>
+        <input type="text" id="entrada_numero">
+        <br>
+    </label>
+    <button onclick="processarNumeros()">Analisar Histórico</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var colecaoValores = [];
+    function processarNumeros() {
+        var valorDigitado = Number(entrada_numero.value);
+        var saidaHtml = "";
+        colecaoValores.push(valorDigitado);
+        var valorMaximo = colecaoValores[0];
+        var valorMinimo = colecaoValores[0];
+        for (var indice = 0; indice < colecaoValores.length; indice++) {
+            var itemAtual = colecaoValores[indice];
+            saidaHtml += `${indice + 1}º Número: ${itemAtual} <br>`;
+            if (itemAtual > valorMaximo) {
+                valorMaximo = itemAtual;
+            }
+            if (itemAtual < valorMinimo) {
+                valorMinimo = itemAtual;
+            }
+        }
+        saidaHtml += `<br>Maior: ${valorMaximo} <br>`;
+        saidaHtml += `Menor: ${valorMinimo}`;
+        div_mensagem.innerHTML = saidaHtml;
+    }
+</script>

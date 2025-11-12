@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 13</title>
+</head>
+<body>
+    <label>
+        Indique o resultado:
+        <br>
+        <select id="seletor_resultado">
+            <option value="vitoria">Vitória</option>
+            <option value="empate">Empate</option>
+            <option value="derrota">Derrota</option>
+        </select>
+    </label>
+    <button onclick="registrarPartida()">Registrar Jogo</button>
+    <br><br>
+    <label>
+        Indique qual jogo deseja saber o resultado:
+        <br>
+        <input type="text" id="entrada_pesquisa" oninput="buscarPorJogo()">
+        <br>
+    </label>
+    
+    <div id="div_estatisticas"></div>
+    <div id="div_pesquisa"></div>
+</body>
+</html>
+<script>
+    var registroPartidas = [];
+    function registrarPartida() {
+        var resultadoJogo = seletor_resultado.value;
+        registroPartidas.push(resultadoJogo);
+        var vitorias = 0;
+        var empates = 0;
+        var derrotas = 0;
+        for (var i = 0; i < registroPartidas.length; i++) {
+            var itemAtual = registroPartidas[i];
+            if (itemAtual == 'vitoria') {
+                vitorias++;
+            } else if (itemAtual == 'empate') {
+                empates++;
+            } else {
+                derrotas++;
+            }
+        }
+        var totalJogos = registroPartidas.length;
+        var totalPontos = (vitorias * 3) + (empates * 1);
+        var pontosPossiveis = totalJogos * 3;
+        var aproveitamento = 0;
+        if (pontosPossiveis > 0) {
+            aproveitamento = (totalPontos / pontosPossiveis) * 100;
+        }
+        div_estatisticas.innerHTML = `O time teve: ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas <br>
+            Pontuação total: ${totalPontos} pontos <br>
+            Aproveitamento: ${aproveitamento.toFixed(2)}%`;
+        
+        buscarPorJogo();
+    }
+    function buscarPorJogo() {
+        var numeroJogo = entrada_pesquisa.value;
+        var saidaBusca = "";
+        if (numeroJogo == "") {
+            div_pesquisa.innerHTML = "";
+            return;
+        }
+        var indice = Number(numeroJogo);
+        if (indice > 0 && indice <= registroPartidas.length) {
+            var resultado = registroPartidas[indice - 1];
+            var textoResultado = "";
+            if (resultado == 'vitoria') {
+                textoResultado = "Ganhou";
+            } else if (resultado == 'empate') {
+                textoResultado = "Empatou";
+            } else {
+                textoResultado = "Perdeu";
+            }
+            saidaBusca = `No ${indice}º jogo, o time ${textoResultado}`;
+        } else {
+            saidaBusca = `Não foi cadastrado um ${indice}º jogo`;
+        }
+        div_pesquisa.innerHTML = saidaBusca;
+    }
+</script>

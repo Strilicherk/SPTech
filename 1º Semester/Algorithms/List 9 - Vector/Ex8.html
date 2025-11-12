@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+<body>
+    <label>
+        Digite seu nome:
+        <br>
+        <input type="text" id="entrada_nome">
+        <br>
+    </label>
+    <button onclick="processarEnvio()">Cadastrar Nomes</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var colecaoNomes = [];
+    function processarEnvio() {
+        var nomeDigitado = entrada_nome.value.trim();
+        var saidaHtml = "";
+        if (nomeDigitado != "") {
+            colecaoNomes.push(nomeDigitado);
+        } else {
+            alert(`Preencha o nome`);
+        }
+        for (var indice = colecaoNomes.length - 1; indice >= 0; indice--) {
+            var itemAtual = colecaoNomes[indice];
+            saidaHtml += `${colecaoNomes.length - indice}. ${itemAtual} <br>`;
+        }  
+        div_mensagem.innerHTML = saidaHtml;
+    }
+</script>

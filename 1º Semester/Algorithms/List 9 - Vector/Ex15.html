@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 15</title>
+</head>
+<body>
+    <label>
+        Digite o nome do produto:
+        <br>
+        <input type="text" id="entrada_nome">
+        <br>
+    </label><label>
+        Digite o preço da compra do produto:
+        <br>
+        <input type="text" id="entrada_preco">
+        <br>
+    </label>
+    <button onclick="processarCadastro()">Cadastrar</button>
+    <button onclick="gerarRelatorio()">Relatório de Estoque</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var colecaoNomes = [];
+    var colecaoPrecos = [];
+    function processarCadastro() {
+        var nomeProduto = entrada_nome.value.trim(); 
+        var precoProduto = Number(entrada_preco.value);  
+        
+        if (nomeProduto == "" || precoProduto <= 0 || isNaN(precoProduto)) {
+            alert(`Insira os valores corretos nos campos Nome e Preço!`);
+        } else {
+            colecaoNomes.push(nomeProduto);
+            colecaoPrecos.push(precoProduto);
+            entrada_nome.value = "";
+            entrada_preco.value = "";
+        }
+    }
+    function gerarRelatorio() {
+        var saidaHtml = "";
+        saidaHtml = `Total de produtos: ${colecaoNomes.length} <br>`;
+        for (var i = 0; i < colecaoNomes.length; i++) {
+            var nomeItem = colecaoNomes[i];
+            var precoItem = colecaoPrecos[i];
+            var precoVenda = precoItem * 1.25;
+            
+            saidaHtml += `Produto ${i + 1}: ${nomeItem} <br>
+            Preço de compra: R$${precoItem.toFixed(2)}. Vender por R$${precoVenda.toFixed(2)} <br>`;
+        }
+        div_mensagem.innerHTML = saidaHtml;
+    }
+</script>
