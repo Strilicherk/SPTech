@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="nome_astronauta">Nome do Astronauta: </label> 
+    <input type="text" id="nome_astronauta"> <br>
+    <label for="nome_planeta">Nome do Planeta: </label>
+    <input type="text" id="nome_planeta"> <br>
+    <label for="tempo_relativo">Tempo Relativo no Planeta: </label>
+    <input type="number" id="tempo_relativo"> <br>
+    <label for="dias_viagem">Duração da Viagem (Dias): </label>
+    <input type="number" id="dias_viagem"> <br>
+    <label for="horas_viagem">Duração da Viagem (Horas): </label>
+    <input type="number" id="horas_viagem"> <br>
+    <label for="minutos_viagem">Duração da Viagem (Minutos): </label>
+    <input type="number" id="minutos_viagem"> <br>
+    <button onclick=RegistrarViagem()>Registrar Viagem</button>
+
+    <script>
+        var viagemValida;
+
+        var listaAstronauta = [];
+        var listaPlaneta = [];
+        var listaTempoRelativo = [];
+        var listaDias = [];
+        var listaHoras = [];
+        var listaMinutos = [];
+
+        var nomeAstronauta;
+        var nomePlaneta;
+        var tempoRelativo;
+        var diasViagem;
+        var horasViagem;
+        var minutosViagem;
+
+        function RegistrarViagem() {
+            ValidarViagem()
+            if (viagemValida) {
+                ArmazenarViagem()
+            }
+            
+        }
+
+        function ValidarViagem() {
+            nomeAstronauta = nome_astronauta.value
+            nomePlaneta = nome_planeta.value
+            tempoRelativo = Number(tempo_relativo.value)
+            diasViagem = Number(dias_viagem.value)
+            horasViagem = Number(horas_viagem.value)
+            minutosViagem = Number(minutos_viagem.value)
+            
+            if (nomeAstronauta == "" || nomePlaneta == "" || tempo_relativo <= 0 || (diasViagem <= 0 && horasViagem <= 0 && minutosViagem <= 0)) {
+                alert("Preencha os campos corretamente e informe um tempo de viagem válido!")
+                viagemValida = false;
+            } else {
+                viagemValida = true;
+            }
+        }
+
+        function ArmazenarViagem() {
+            var tempoTotalEmMinutos = diasViagem * 1440 + horasViagem * 60 + minutosViagem;
+
+            
+            diasViagem = Math.floor(tempoTotalEmMinutos / 1440);
+            console.log(diasViagem);
+            tempoTotalEmMinutos = tempoTotalEmMinutos % 1440;
+            console.log(tempoTotalEmMinutos);
+
+            horasViagem = Math.floor(tempoTotalEmMinutos / 60);
+            console.log(horasViagem);
+            tempoTotalEmMinutos = tempoTotalEmMinutos % 60;
+            console.log(tempoTotalEmMinutos);
+
+            minutosViagem = Math.floor(tempoTotalEmMinutos);
+            console.log(minutosViagem)
+            console.log(tempoTotalEmMinutos);
+
+
+
+            listaAstronauta.push(nomeAstronauta);
+            listaPlaneta.push(nomePlaneta);
+            listaTempoRelativo.push(tempoRelativo);
+            listaDias.push(diasViagem);
+            listaHoras.push(horasViagem);
+            listaMinutos.push(minutosViagem);
+
+            console.log(`${listaAstronauta[0]}, ${listaPlaneta[0]}, ${listaTempoRelativo[0]}, ${listaDias[0]}, ${listaHoras[0]}, ${listaMinutos[0]}`);
+        }
+    </script>
+</body>
+</html>
