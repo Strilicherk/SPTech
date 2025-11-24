@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Números aleatórios</title>
+
+    <style>
+      .valor {
+        background-color: rgb(89, 186, 255);
+      }
+      .valor {
+        color: rgb(240, 22, 102);
+      }
+    </style>
+  </head>
+  <body>
+    <h4>
+      Teste o programa para entender o comportamento, baseado na planilha de
+      apoio.
+    </h4>
+    <h4>
+      OBS: tente utilizar números negativos para o intervalo e veja seu
+      comportamento
+    </h4>
+
+    Mínimo:
+    <input type="text" id="input_min" /> <br />
+
+    Máximo:
+    <input type="text" id="input_max" /> <br />
+
+    <button onclick="gerar()">Gerar Aleatório</button>
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+
+<script>
+  function gerar() {
+    var mensagem = "";
+
+    var aleatorio = Math.random(); // retorna um número decimal de 0 até 0.9999 (nunca chega em 1)
+
+    var aleatorio_mais_1 = aleatorio + 1; // DESLOCA o intervalo de 1 até 1.9999, mas mantém o intervalo
+
+    var aleatorio_ate_10 = aleatorio * 10; // AUMENTA o intervalo de 0 até 9.9999, mas continua iniciando em 0
+
+    var min = Number(input_min.value); // captura o valor inserido (EX: 10)
+    var max = Number(input_max.value); // captura o valor inserido (EX: 25)
+    var intervalo = max - min; // intervalo de números entre o mínimo e máximo (EX: 15)
+
+    var aleatorio_ate_max = aleatorio * max; // gera um número de 0 até o máximo solicitado (EX: 0 até 14.999)
+
+    // EXEMPLO COM FÓRMULA ÚNICA - max: 25 | min : 10 | intervalo: 15
+    var aleatorio_entre_min_max = aleatorio * intervalo + min; // gera um número de 10 até 24.999
+    
+    // EXEMPLO EM ETAPAS - max: 25 | min : 10 | intervalo: 15
+    // var aleatorio_intevalo = aleatorio * intervalo; // gera um número de 0 até 14.999
+    // var aleatorio_entre_min_max = aleatorio_intevalo + min; // soma o número gerado com o mínimo informado, gerando um número de 10 até 24.999
+    
+    var aleatorio_entre_min_max_INTEIRO = Number((aleatorio * intervalo + min).toFixed(0)); // gera um inteiro de 10 até 25
+    
+    mensagem += `
+      <strong>(0 a 0.99)</strong> - Aleatório sorteado: <span class="valor">${aleatorio}</span> <br>
+      <strong>(1 até 1.99)</strong> - Aleatório + 1: <span class="valor">${aleatorio_mais_1}</span> <br>
+      <strong>(0 até 9.99)</strong> - Aleatório * 10: <span class="valor">${aleatorio_ate_10}</span> <br>
+      <strong>(0 até max [${max}]</strong> - Aleatório * Máximo: <span class="valor">${aleatorio_ate_max}</span> <br>
+      <strong>(min [${min}] até max [${max}])</strong> - Aleatório decimal no intervalo: <span class="valor">${aleatorio_entre_min_max}</span> <br>
+      <strong>(min [${min}] até max [${max}])</strong> - Aleatório inteiro no intervalo: <span class="valor">${aleatorio_entre_min_max_INTEIRO}</span> <br>
+    `;
+    
+    div_mensagem.innerHTML = mensagem;
+  }
+</script>
