@@ -135,8 +135,7 @@
 
             if (contadorEncontrados == 0) {
                 alert(`O astronauta ${nomeBusca} não tem viagens registradas`);
-            } 
-            else if (contadorEncontrados == 1) {
+            } else if (contadorEncontrados == 1) {
                 for (var i = 0; i < viagens.length; i++) {
                     if (viagens[i][0] == nomeBusca) {
                         relatorio_viagens.innerHTML = `
@@ -145,11 +144,11 @@
                         `;
                     }
                 }
-            } 
-            else {
+            } else {
                 htmlResultado = `<h2>Astronauta ${nomeBusca} viajou para:</h2>`;
-                
-                var listaEncontrada = []; 
+
+                var listaOrdemViagens = [];
+                var listaTempos = [];
                 var contadorVisual = 0;
 
                 for (var i = 0; i < viagens.length; i++) {
@@ -159,33 +158,40 @@
                         
                         htmlResultado += `<p>${contadorVisual}ª viagem - planeta ${viagens[i][1]} com o tempo na terra de ${tempoAtual} minutos</p>`;
                         
-                        listaEncontrada.push({ 
-                            id_viagem: contadorVisual, 
-                            tempo: tempoAtual 
-                        });
+                        listaOrdemViagens.push(contadorVisual);
+                        listaTempos.push(tempoAtual);
                     }
                 }
 
-                listaEncontrada.sort(function(a, b) {
-                    return b.tempo - a.tempo; 
-                });
+                for (var i = 0; i < listaTempos.length; i++) {
+                    for (var j = 0; j < listaTempos.length - 1; j++) {
+                        if (listaTempos[j] < listaTempos[j + 1]) {
+                            
+                            var tempAux = listaTempos[j];
+                            listaTempos[j] = listaTempos[j + 1];
+                            listaTempos[j + 1] = tempAux;
 
+                            var ordemAux = listaOrdemViagens[j];
+                            listaOrdemViagens[j] = listaOrdemViagens[j + 1];
+                            listaOrdemViagens[j + 1] = ordemAux;
+                        }
+                    }
+                }
+                
                 htmlResultado += `<h3>VIAGENS COM MAIOR TEMPO:</h3>`;
+                htmlResultado += `<p>${listaOrdemViagens[0]}ª viagem – tempo ${listaTempos[0]} minutos</p>`;
                 
-                htmlResultado += `<p>${listaEncontrada[0].id_viagem}ª viagem – tempo ${listaEncontrada[0].tempo} minutos</p>`;
-                
-                if (listaEncontrada.length > 1) {
-                    htmlResultado += `<p>${listaEncontrada[1].id_viagem}ª viagem – tempo ${listaEncontrada[1].tempo} minutos</p>`;
+                if (listaTempos.length > 1) {
+                    htmlResultado += `<p>${listaOrdemViagens[1]}ª viagem – tempo ${listaTempos[1]} minutos</p>`;
                 }
 
                 htmlResultado += `<h3>VIAGENS COM MENOR TEMPO:</h3>`;
                 
-                var ultimo = listaEncontrada.length - 1;
-                
-                htmlResultado += `<p>${listaEncontrada[ultimo].id_viagem}ª viagem – tempo ${listaEncontrada[ultimo].tempo} minutos</p>`;
+                var ultimo = listaTempos.length - 1;
+                htmlResultado += `<p>${listaOrdemViagens[ultimo]}ª viagem – tempo ${listaTempos[ultimo]} minutos</p>`;
                 
                 if (ultimo > 0) {
-                     htmlResultado += `<p>${listaEncontrada[ultimo - 1].id_viagem}ª viagem – tempo ${listaEncontrada[ultimo - 1].tempo} minutos</p>`;
+                     htmlResultado += `<p>${listaOrdemViagens[ultimo - 1]}ª viagem – tempo ${listaTempos[ultimo - 1]} minutos</p>`;
                 }
 
                 relatorio_viagens.innerHTML = htmlResultado;
@@ -218,8 +224,9 @@
             } 
             else {
                 htmlResultado = `<h2>Planeta ${planetaBusca} foi visitado por:</h2>`;
-                
-                var listaEncontrada = [];
+  
+                var listaOrdemViagens = [];
+                var listaTempos = [];
                 var contadorVisual = 0;
 
                 for (var i = 0; i < viagens.length; i++) {
@@ -229,31 +236,40 @@
                         
                         htmlResultado += `<p>${contadorVisual}ª viagem - astronauta ${viagens[i][0]} com o tempo na terra de ${tempoAtual} minutos</p>`;
                         
-                        listaEncontrada.push({ 
-                            id_viagem: contadorVisual, 
-                            tempo: tempoAtual 
-                        });
+                        listaOrdemViagens.push(contadorVisual);
+                        listaTempos.push(tempoAtual);
                     }
                 }
 
-                listaEncontrada.sort(function(a, b) {
-                    return b.tempo - a.tempo;
-                });
+                for (var i = 0; i < listaTempos.length; i++) {
+                    for (var j = 0; j < listaTempos.length - 1; j++) {
+                        if (listaTempos[j] < listaTempos[j + 1]) {
+                            
+                            var tempAux = listaTempos[j];
+                            listaTempos[j] = listaTempos[j + 1];
+                            listaTempos[j + 1] = tempAux;
+
+                            var ordemAux = listaOrdemViagens[j];
+                            listaOrdemViagens[j] = listaOrdemViagens[j + 1];
+                            listaOrdemViagens[j + 1] = ordemAux;
+                        }
+                    }
+                }
 
                 htmlResultado += `<h3>VIAGENS COM MAIOR TEMPO:</h3>`;
-                htmlResultado += `<p>${listaEncontrada[0].id_viagem}ª viagem – tempo ${listaEncontrada[0].tempo} minutos</p>`;
+                htmlResultado += `<p>${listaOrdemViagens[0]}ª viagem – tempo ${listaTempos[0]} minutos</p>`;
                 
-                if (listaEncontrada.length > 1) {
-                    htmlResultado += `<p>${listaEncontrada[1].id_viagem}ª viagem – tempo ${listaEncontrada[1].tempo} minutos</p>`;
+                if (listaTempos.length > 1) {
+                    htmlResultado += `<p>${listaOrdemViagens[1]}ª viagem – tempo ${listaTempos[1]} minutos</p>`;
                 }
 
                 htmlResultado += `<h3>VIAGENS COM MENOR TEMPO:</h3>`;
-                var ultimo = listaEncontrada.length - 1;
+                var ultimo = listaTempos.length - 1;
                 
-                htmlResultado += `<p>${listaEncontrada[ultimo].id_viagem}ª viagem – tempo ${listaEncontrada[ultimo].tempo} minutos</p>`;
+                htmlResultado += `<p>${listaOrdemViagens[ultimo]}ª viagem – tempo ${listaTempos[ultimo]} minutos</p>`;
                 
                 if (ultimo > 0) {
-                     htmlResultado += `<p>${listaEncontrada[ultimo - 1].id_viagem}ª viagem – tempo ${listaEncontrada[ultimo - 1].tempo} minutos</p>`;
+                     htmlResultado += `<p>${listaOrdemViagens[ultimo - 1]}ª viagem – tempo ${listaTempos[ultimo - 1]} minutos</p>`;
                 }
 
                 relatorio_viagens.innerHTML = htmlResultado;
