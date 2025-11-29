@@ -3,33 +3,44 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Interestrelar - Controle de Viagens</title>
 </head>
 <body style="display: flex; flex-direction: column; gap: 10px;">
+    
+    <h3>Cadastro de Viagem</h3>
     <label for="nome_astronauta">Nome do Astronauta: </label>
     <input type="text" id="nome_astronauta" /> <br />
+    
     <label for="nome_planeta">Nome do Planeta: </label>
     <input type="text" id="nome_planeta" /> <br />
+    
     <label for="tempo_relativo">Tempo Relativo no Planeta: </label>
     <input type="number" id="tempo_relativo" /> <br />
+    
     <label for="dias_viagem">Duração da Viagem (Dias): </label>
     <input type="number" id="dias_viagem" /> <br />
+    
     <label for="horas_viagem">Duração da Viagem (Horas): </label>
     <input type="number" id="horas_viagem" /> <br />
+    
     <label for="minutos_viagem">Duração da Viagem (Minutos): </label>
     <input type="number" id="minutos_viagem" /> <br />
-    <div style="width: 50%;">
+    
+    <div style="width: 50%; display: flex; gap: 10px; flex-wrap: wrap;">
         <button onclick="RegistrarViagem()">Registrar Viagem</button>
         <button onclick="RelatorioViagens()">Relatório de Viagens</button>
+        
+        <button onclick="ConsultarAstronauta()">Consulta Astronauta</button>
+        <button onclick="ConsultarPlaneta()">Consulta Planeta</button>
     </div>
-    <div id="relatorio_viagens" style="display: flex; flex-direction: column; gap: 30px;">
+
+    <div id="relatorio_viagens" style="display: flex; flex-direction: column; gap: 30px; margin-top: 20px;">
         
     </div>
     
     <script>
         var viagemValida;
         var viagens = [];
-        
         
         var nomeAstronauta;
         var nomePlaneta;
@@ -39,18 +50,18 @@
         var minutosViagem;
         var anosTerrestre;
         var imagePath;
-        
+        var totalMinutosTerra; 
         
         function ValidarViagem() {
-            nomeAstronauta = nome_astronauta.value
-            nomePlaneta = nome_planeta.value
-            tempoRelativo = Number(tempo_relativo.value)
-            diasViagem = Number(dias_viagem.value)
-            horasViagem = Number(horas_viagem.value)
-            minutosViagem = Number(minutos_viagem.value)
+            nomeAstronauta = nome_astronauta.value;
+            nomePlaneta = nome_planeta.value;
+            tempoRelativo = Number(tempo_relativo.value);
+            diasViagem = Number(dias_viagem.value);
+            horasViagem = Number(horas_viagem.value);
+            minutosViagem = Number(minutos_viagem.value);
             
-            if (nomeAstronauta == "" || nomePlaneta == "" || tempo_relativo <= 0 || (diasViagem <= 0 && horasViagem <= 0 && minutosViagem <= 0)) {
-                alert("Preencha os campos corretamente e informe um tempo de viagem válido!")
+            if (nomeAstronauta == "" || nomePlaneta == "" || tempoRelativo <= 0 || (diasViagem <= 0 && horasViagem <= 0 && minutosViagem <= 0)) {
+                alert("Preencha os campos corretamente e informe um tempo de viagem válido!");
                 viagemValida = false;
             } else {
                 viagemValida = true;
@@ -59,10 +70,12 @@
         
         function CalcularDuracao() {
             var tempoTotalEmMinutos = diasViagem * 1440 + horasViagem * 60 + minutosViagem;
-            anosTerrestre = Math.floor((tempoTotalEmMinutos * tempoRelativo) / 525600);
+            
+            totalMinutosTerra = tempoTotalEmMinutos * tempoRelativo;
+            anosTerrestre = Math.floor(totalMinutosTerra / 525600);
             
             if (anosTerrestre <= 13) {
-                imagePath = "adolescente.png";
+                imagePath = "adolescente.png"; 
             } else if (anosTerrestre <= 30) {
                 imagePath = "jovem.png";
             } else if (anosTerrestre <= 65) {
@@ -75,20 +88,18 @@
             
             diasViagem = Math.floor(tempoTotalEmMinutos / 1440);
             tempoTotalEmMinutos = tempoTotalEmMinutos % 1440;
-            
             horasViagem = Math.floor(tempoTotalEmMinutos / 60);
             tempoTotalEmMinutos = tempoTotalEmMinutos % 60;
-            
             minutosViagem = Math.floor(tempoTotalEmMinutos);
         }
         
         function RegistrarViagem() {
-            ValidarViagem()
+            ValidarViagem();
             if (viagemValida) {
-                CalcularDuracao()
-                viagens.push([nomeAstronauta, nomePlaneta, tempoRelativo, diasViagem, horasViagem, minutosViagem, anosTerrestre, imagePath])
+                CalcularDuracao();
+                viagens.push([nomeAstronauta, nomePlaneta, tempoRelativo, diasViagem, horasViagem, minutosViagem, anosTerrestre, imagePath, totalMinutosTerra]);
+                alert("Viagem registrada com sucesso!");
             }
-            
         }
         
         function RelatorioViagens() {
@@ -97,30 +108,156 @@
             
             for (var i = 0; i < totalViagens; i++) {
                 relatorio += `
-                    <div
-                        style="
-                        width: 60%;
-                        display: flex;
-                        flex-direction: column;
-                        padding-left: 10px;
-                        padding-bottom: 20px;
-                        box-shadow: 0 0 5px 0 black;
-                        "
-                    >
+                    <div style="width: 60%; display: flex; flex-direction: column; padding: 10px; margin-bottom: 20px; box-shadow: 0 0 5px 0 black;">
                         <p style="font-size: 1.25rem">
+                            <b>Viagem ${i + 1}:</b><br>
                             Astronauta ${viagens[i][0]} viajou para o planeta ${viagens[i][1]} e ficou fora por pelo
                             menos ${viagens[i][6]} anos no tempo da Terra. <br />
                             A criança que nasceu quando ele saiu provavelmente está assim hoje:
                         </p>
-                        <img
-                            src="${viagens[i][7]}"
-                            style="width: 200px; height: 200px;"
-                        />
+                        <img src="${viagens[i][7]}" style="width: 200px; height: 200px;" alt="Imagem da pessoa" />
                     </div>
-                `
+                `;
             }
-            
             relatorio_viagens.innerHTML = relatorio;
+        }
+
+        function ConsultarAstronauta() {
+            var nomeBusca = prompt("Digite o nome do astronauta para consulta:");
+            var contadorEncontrados = 0;
+            var htmlResultado = "";
+            
+            for (var i = 0; i < viagens.length; i++) {
+                if (viagens[i][0] == nomeBusca) {
+                    contadorEncontrados++;
+                }
+            }
+
+            if (contadorEncontrados == 0) {
+                alert(`O astronauta ${nomeBusca} não tem viagens registradas`);
+            } 
+            else if (contadorEncontrados == 1) {
+                for (var i = 0; i < viagens.length; i++) {
+                    if (viagens[i][0] == nomeBusca) {
+                        relatorio_viagens.innerHTML = `
+                            <h2>Resultado da Consulta:</h2>
+                            <p>Astronauta ${viagens[i][0]} viajou para o planeta ${viagens[i][1]} com o tempo na terra de ${viagens[i][8]} minutos</p>
+                        `;
+                    }
+                }
+            } 
+            else {
+                htmlResultado = `<h2>Astronauta ${nomeBusca} viajou para:</h2>`;
+                
+                var listaEncontrada = []; 
+                var contadorVisual = 0;
+
+                for (var i = 0; i < viagens.length; i++) {
+                    if (viagens[i][0] == nomeBusca) {
+                        contadorVisual++;
+                        var tempoAtual = viagens[i][8];
+                        
+                        htmlResultado += `<p>${contadorVisual}ª viagem - planeta ${viagens[i][1]} com o tempo na terra de ${tempoAtual} minutos</p>`;
+                        
+                        listaEncontrada.push({ 
+                            id_viagem: contadorVisual, 
+                            tempo: tempoAtual 
+                        });
+                    }
+                }
+
+                listaEncontrada.sort(function(a, b) {
+                    return b.tempo - a.tempo; 
+                });
+
+                htmlResultado += `<h3>VIAGENS COM MAIOR TEMPO:</h3>`;
+                
+                htmlResultado += `<p>${listaEncontrada[0].id_viagem}ª viagem – tempo ${listaEncontrada[0].tempo} minutos</p>`;
+                
+                if (listaEncontrada.length > 1) {
+                    htmlResultado += `<p>${listaEncontrada[1].id_viagem}ª viagem – tempo ${listaEncontrada[1].tempo} minutos</p>`;
+                }
+
+                htmlResultado += `<h3>VIAGENS COM MENOR TEMPO:</h3>`;
+                
+                var ultimo = listaEncontrada.length - 1;
+                
+                htmlResultado += `<p>${listaEncontrada[ultimo].id_viagem}ª viagem – tempo ${listaEncontrada[ultimo].tempo} minutos</p>`;
+                
+                if (ultimo > 0) {
+                     htmlResultado += `<p>${listaEncontrada[ultimo - 1].id_viagem}ª viagem – tempo ${listaEncontrada[ultimo - 1].tempo} minutos</p>`;
+                }
+
+                relatorio_viagens.innerHTML = htmlResultado;
+            }
+        }
+
+        function ConsultarPlaneta() {
+            var planetaBusca = prompt("Digite o nome do planeta para consulta:");
+            var contadorEncontrados = 0;
+            var htmlResultado = "";
+
+            for (var i = 0; i < viagens.length; i++) {
+                if (viagens[i][1] == planetaBusca) {
+                    contadorEncontrados++;
+                }
+            }
+
+            if (contadorEncontrados == 0) {
+                alert(`O planeta ${planetaBusca} não tem viagens registradas`);
+            } 
+            else if (contadorEncontrados == 1) {
+                for (var i = 0; i < viagens.length; i++) {
+                    if (viagens[i][1] == planetaBusca) {
+                        relatorio_viagens.innerHTML = `
+                            <h2>Resultado da Consulta:</h2>
+                            <p>Planeta ${viagens[i][1]} foi visitado pelo astronauta ${viagens[i][0]} com o tempo na terra de ${viagens[i][8]} minutos</p>
+                        `;
+                    }
+                }
+            } 
+            else {
+                htmlResultado = `<h2>Planeta ${planetaBusca} foi visitado por:</h2>`;
+                
+                var listaEncontrada = [];
+                var contadorVisual = 0;
+
+                for (var i = 0; i < viagens.length; i++) {
+                    if (viagens[i][1] == planetaBusca) {
+                        contadorVisual++;
+                        var tempoAtual = viagens[i][8];
+                        
+                        htmlResultado += `<p>${contadorVisual}ª viagem - astronauta ${viagens[i][0]} com o tempo na terra de ${tempoAtual} minutos</p>`;
+                        
+                        listaEncontrada.push({ 
+                            id_viagem: contadorVisual, 
+                            tempo: tempoAtual 
+                        });
+                    }
+                }
+
+                listaEncontrada.sort(function(a, b) {
+                    return b.tempo - a.tempo;
+                });
+
+                htmlResultado += `<h3>VIAGENS COM MAIOR TEMPO:</h3>`;
+                htmlResultado += `<p>${listaEncontrada[0].id_viagem}ª viagem – tempo ${listaEncontrada[0].tempo} minutos</p>`;
+                
+                if (listaEncontrada.length > 1) {
+                    htmlResultado += `<p>${listaEncontrada[1].id_viagem}ª viagem – tempo ${listaEncontrada[1].tempo} minutos</p>`;
+                }
+
+                htmlResultado += `<h3>VIAGENS COM MENOR TEMPO:</h3>`;
+                var ultimo = listaEncontrada.length - 1;
+                
+                htmlResultado += `<p>${listaEncontrada[ultimo].id_viagem}ª viagem – tempo ${listaEncontrada[ultimo].tempo} minutos</p>`;
+                
+                if (ultimo > 0) {
+                     htmlResultado += `<p>${listaEncontrada[ultimo - 1].id_viagem}ª viagem – tempo ${listaEncontrada[ultimo - 1].tempo} minutos</p>`;
+                }
+
+                relatorio_viagens.innerHTML = htmlResultado;
+            }
         }
     </script>
 </body>
